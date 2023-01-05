@@ -10,37 +10,6 @@ import copy
 from urllib import parse
 
 
-def get_moves(epd):
-
-    api = "http://www.chessdb.cn/cdb.php"
-    timeout = 3
-
-    parameters = {"action": "queryall", "board": epd, "json": 1}
-
-    moves = []
-
-    try:
-        response = requests.get(api, parameters, timeout=timeout)
-        response.raise_for_status()
-        data = response.json()
-        if data["status"] == "ok":
-            moves = data["moves"]
-        elif data["status"] == "unknown":
-            pass
-        elif data["status"] == "rate limited exceeded":
-            pass
-        else:
-            sys.stderr.write(data)
-    except:
-        pass
-
-    stdmoves = []
-    for m in moves:
-        stdmoves.append({"score": m["score"], "uci": m["uci"]})
-
-    return stdmoves
-
-
 class ChessGraph:
     def __init__(self, depth, concurrency):
         self.visited = set()
@@ -52,6 +21,36 @@ class ChessGraph:
         self.executorwork = concurrent.futures.ThreadPoolExecutor(
             max_workers=concurrency
         )
+        self.session = requests.Session()
+
+    def get_moves(self, epd):
+
+        api = "http://www.chessdb.cn/cdb.php"
+        url = api + "?action=queryall&board=" + parse.quote(epd) + "&json=1"
+        timeout = 3
+
+        moves = []
+
+        try:
+            response = self.session.get(url, timeout=timeout)
+            response.raise_for_status()
+            data = response.json()
+            if data["status"] == "ok":
+                moves = data["moves"]
+            elif data["status"] == "unknown":
+                pass
+            elif data["status"] == "rate limited exceeded":
+                sys.stderr.write("rate")
+            else:
+                sys.stderr.write(data)
+        except:
+            pass
+
+        stdmoves = []
+        for m in moves:
+            stdmoves.append({"score": m["score"], "uci": m["uci"]})
+
+        return stdmoves
 
     def write_node(self, board, score, showboard, pvNode):
 
@@ -115,7 +114,7 @@ class ChessGraph:
             self.visited.add(epdfrom)
 
         turn = board.turn
-        moves = self.executorwork.submit(get_moves, epdfrom).result()
+        moves = self.executorwork.submit(self.get_moves, epdfrom).result()
         bestscore = None
         edgesfound = 0
         edgesdrawn = 0
