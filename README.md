@@ -4,7 +4,7 @@ An utility to create a graph of moves from a specified position.
 
 For example:
 
-!(Spanish)[spanish.svg]
+![Spanish](spanish.svg)
 
 This image was generated using:
 
@@ -23,4 +23,4 @@ Whereas the former can have embedded links to latter might be more convient to s
 dot -Tpng -Gdpi=300 spanish.dot -o spanish.png
 ```
 
-!(Spanish)[spanish.png]
+![Spanish](spanish.png)
