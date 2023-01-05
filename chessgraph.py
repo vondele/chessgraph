@@ -4,6 +4,9 @@ import argparse
 import chess
 import math
 import sys
+import concurrent.futures
+import multiprocessing
+import copy
 from urllib import parse
 
 
@@ -39,8 +42,16 @@ def get_moves(epd):
 
 
 class ChessGraph:
-    def __init__(self):
+    def __init__(self, depth, concurrency):
         self.visited = set()
+        self.depth = depth
+        self.executorgraph = [
+            concurrent.futures.ThreadPoolExecutor(max_workers=concurrency)
+            for i in range(0, depth + 1)
+        ]
+        self.executorwork = concurrent.futures.ThreadPoolExecutor(
+            max_workers=concurrency
+        )
 
     def write_node(self, board, score, showboard, pvNode):
 
@@ -94,17 +105,22 @@ class ChessGraph:
 
     def recurse(self, board, depth, alpha, beta, pvNode):
 
-        # terminate recursion
-
+        epdfrom = board.epd()
         returnstr = []
 
-        epdfrom = board.epd()
-        self.visited.add(epdfrom)
+        # terminate recursion if visited
+        if epdfrom in self.visited:
+            return returnstr
+        else:
+            self.visited.add(epdfrom)
+
         turn = board.turn
-        moves = get_moves(epdfrom)
+        moves = self.executorwork.submit(get_moves, epdfrom).result()
         bestscore = None
         edgesfound = 0
         edgesdrawn = 0
+        futures = []
+        edges = []
 
         # loop through the moves that are within delta of the bestmove
         for m in sorted(moves, key=lambda item: item["score"], reverse=True):
@@ -123,33 +139,45 @@ class ChessGraph:
             board.push(move)
             epdto = board.epd()
             edgesfound += 1
+            pvEdge = pvNode and score == bestscore
 
             # no loops, otherwise recurse
-            newDepth = depth - int(1.5 + math.log(edgesfound) / math.log(2))
+            if score == bestscore:
+                newDepth = depth - 1
+            else:
+                newDepth = depth - int(1.5 + math.log(edgesfound) / math.log(2))
 
             if newDepth > 0:
-                pvEdge = pvNode and score == bestscore
                 if not epdto in self.visited:
-                    returnstr += self.recurse(
-                        board, newDepth, -beta, -alpha, pvNode=pvEdge
+                    futures.append(
+                        self.executorgraph[depth].submit(
+                            self.recurse,
+                            copy.deepcopy(board),
+                            newDepth,
+                            -beta,
+                            -alpha,
+                            pvEdge,
+                        )
                     )
-
                 edgesdrawn += 1
                 returnstr.append(self.write_edge(epdfrom, epdto, sanmove, turn, pvEdge))
 
             board.pop()
 
+        for f in futures:
+            returnstr += f.result()
+
         returnstr.append(self.write_node(board, bestscore, edgesdrawn > 2, pvNode))
 
         return returnstr
 
-    def generate_graph(self, epd, depth, alpha, beta):
+    def generate_graph(self, epd, alpha, beta):
 
         # set initial board
         board = chess.Board(epd)
 
         dotstr = ["digraph {"]
-        dotstr += self.recurse(board, depth, alpha, beta, pvNode=True)
+        dotstr += self.recurse(board, self.depth, alpha, beta, pvNode=True)
         dotstr.append(self.write_node(board, 0, True, True))
         dotstr.append("}")
 
@@ -181,6 +209,13 @@ if __name__ == "__main__":
     )
 
     parser.add_argument(
+        "--concurrency",
+        type=int,
+        default=multiprocessing.cpu_count(),
+        help="Number of cores to use for work / requests.",
+    )
+
+    parser.add_argument(
         "--position",
         type=str,
         default="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
@@ -189,10 +224,10 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    chessgraph = ChessGraph()
+    chessgraph = ChessGraph(args.depth, args.concurrency)
 
     # generate the content of the dotfile
-    dotstr = chessgraph.generate_graph(args.position, args.depth, args.alpha, args.beta)
+    dotstr = chessgraph.generate_graph(args.position, args.alpha, args.beta)
 
     # write it
     for line in dotstr:
