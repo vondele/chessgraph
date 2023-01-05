@@ -1,0 +1,341 @@
+digraph {
+"r1bq1rk1/2ppbppp/p1n2n2/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQR1K1 w - -" [label="4", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bq1rk1/2ppbppp/p1n2n2/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQR1K1%20w%20-%20-", penwidth=3]
+"r1bqk2r/2ppbppp/p1n2n2/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQR1K1 b kq -" -> "r1bq1rk1/2ppbppp/p1n2n2/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQR1K1 w - -" [label="O-O", color=burlywood4, penwidth=3, fontname="Helvetica-bold"]
+"r1bqk2r/2ppbppp/p1n2n2/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQR1K1 b kq -" [label="-3", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk2r/2ppbppp/p1n2n2/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQR1K1%20b%20kq%20-", penwidth=3]
+"r1bqk2r/2ppbppp/p1n2n2/1p2p3/B3P3/5N2/PPPP1PPP/RNBQR1K1 w kq -" -> "r1bqk2r/2ppbppp/p1n2n2/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQR1K1 b kq -" [label="Bb3", color=gold, penwidth=3, fontname="Helvetica-bold"]
+"r1bqk2r/2ppbppp/p1n2n2/1p2p3/B3P3/5N2/PPPP1PPP/RNBQR1K1 w kq -" [label="4", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk2r/2ppbppp/p1n2n2/1p2p3/B3P3/5N2/PPPP1PPP/RNBQR1K1%20w%20kq%20-", penwidth=3]
+"r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQR1K1 b kq -" -> "r1bqk2r/2ppbppp/p1n2n2/1p2p3/B3P3/5N2/PPPP1PPP/RNBQR1K1 w kq -" [label="b5", color=burlywood4, penwidth=3, fontname="Helvetica-bold"]
+"r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQR1K1 b kq -" [label="-2", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQR1K1%20b%20kq%20-", penwidth=3]
+"r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 w kq -" -> "r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQR1K1 b kq -" [label="Re1", color=gold, penwidth=3, fontname="Helvetica-bold"]
+"r1bqk2r/2ppbppp/p1n2n2/1p2p3/4P3/1BN2N2/PPPP1PPP/R1BQ1RK1 b kq -" [label="0", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk2r/2ppbppp/p1n2n2/1p2p3/4P3/1BN2N2/PPPP1PPP/R1BQ1RK1%20b%20kq%20-", penwidth=1]
+"r1bqk2r/2ppbppp/p1n2n2/1p2p3/B3P3/2N2N2/PPPP1PPP/R1BQ1RK1 w kq -" -> "r1bqk2r/2ppbppp/p1n2n2/1p2p3/4P3/1BN2N2/PPPP1PPP/R1BQ1RK1 b kq -" [label="Bb3", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqk2r/2ppbppp/p1n2n2/1p2p3/B3P3/2N2N2/PPPP1PPP/R1BQ1RK1 w kq -" [label="1", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk2r/2ppbppp/p1n2n2/1p2p3/B3P3/2N2N2/PPPP1PPP/R1BQ1RK1%20w%20kq%20-", penwidth=1]
+"r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/2N2N2/PPPP1PPP/R1BQ1RK1 b kq -" -> "r1bqk2r/2ppbppp/p1n2n2/1p2p3/B3P3/2N2N2/PPPP1PPP/R1BQ1RK1 w kq -" [label="b5", color=burlywood4, penwidth=1, fontname="Helvectica"]
+"r1bqk2r/1pp1bppp/p1np1n2/4p3/B3P3/2N2N2/PPPP1PPP/R1BQ1RK1 w kq -" [label="17", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk2r/1pp1bppp/p1np1n2/4p3/B3P3/2N2N2/PPPP1PPP/R1BQ1RK1%20w%20kq%20-", penwidth=1]
+"r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/2N2N2/PPPP1PPP/R1BQ1RK1 b kq -" -> "r1bqk2r/1pp1bppp/p1np1n2/4p3/B3P3/2N2N2/PPPP1PPP/R1BQ1RK1 w kq -" [label="d6", color=burlywood4, penwidth=1, fontname="Helvectica"]
+"r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/2N2N2/PPPP1PPP/R1BQ1RK1 b kq -" [label="0", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/2N2N2/PPPP1PPP/R1BQ1RK1%20b%20kq%20-", penwidth=1]
+"r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 w kq -" -> "r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/2N2N2/PPPP1PPP/R1BQ1RK1 b kq -" [label="Nc3", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqk2r/1pp1bppp/p1p2n2/4p3/4P3/5N2/PPPP1PPP/RNBQ1RK1 w kq -" [label="1", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk2r/1pp1bppp/p1p2n2/4p3/4P3/5N2/PPPP1PPP/RNBQ1RK1%20w%20kq%20-", penwidth=1]
+"r1bqk2r/1pppbppp/p1B2n2/4p3/4P3/5N2/PPPP1PPP/RNBQ1RK1 b kq -" -> "r1bqk2r/1pp1bppp/p1p2n2/4p3/4P3/5N2/PPPP1PPP/RNBQ1RK1 w kq -" [label="dxc6", color=burlywood4, penwidth=1, fontname="Helvectica"]
+"r1bqk2r/1pppbppp/p1B2n2/4p3/4P3/5N2/PPPP1PPP/RNBQ1RK1 b kq -" [label="0", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk2r/1pppbppp/p1B2n2/4p3/4P3/5N2/PPPP1PPP/RNBQ1RK1%20b%20kq%20-", penwidth=1]
+"r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 w kq -" -> "r1bqk2r/1pppbppp/p1B2n2/4p3/4P3/5N2/PPPP1PPP/RNBQ1RK1 b kq -" [label="Bxc6", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqk2r/2ppbppp/p1n2n2/1p2p3/B3P3/3P1N2/PPP2PPP/RNBQ1RK1 w kq -" [label="2", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk2r/2ppbppp/p1n2n2/1p2p3/B3P3/3P1N2/PPP2PPP/RNBQ1RK1%20w%20kq%20-", penwidth=1]
+"r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/3P1N2/PPP2PPP/RNBQ1RK1 b kq -" -> "r1bqk2r/2ppbppp/p1n2n2/1p2p3/B3P3/3P1N2/PPP2PPP/RNBQ1RK1 w kq -" [label="b5", color=burlywood4, penwidth=1, fontname="Helvectica"]
+"r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/3P1N2/PPP2PPP/RNBQ1RK1 b kq -" [label="0", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/3P1N2/PPP2PPP/RNBQ1RK1%20b%20kq%20-", penwidth=1]
+"r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 w kq -" -> "r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/3P1N2/PPP2PPP/RNBQ1RK1 b kq -" [label="d3", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 w kq -" [fontname="Courier", label="♜ · ♝ ♛ ♚ · · ♜
+· ♟ ♟ ♟ ♝ ♟ ♟ ♟
+♟ · ♞ · · ♞ · ·
+· · · · ♟ · · ·
+♗ · · · ♙ · · ·
+· · · · · ♘ · ·
+♙ ♙ ♙ ♙ · ♙ ♙ ♙
+♖ ♘ ♗ ♕ · ♖ ♔ ·", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1%20w%20kq%20-", penwidth=3]
+"r1bqkb1r/1ppp1ppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 b kq -" -> "r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 w kq -" [label="Be7", color=burlywood4, penwidth=3, fontname="Helvetica-bold"]
+"r1bqkb1r/2pp1ppp/p1n5/1p2p3/3Pn3/1B3N2/PPP2PPP/RNBQ1RK1 b kq -" [label="-9", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqkb1r/2pp1ppp/p1n5/1p2p3/3Pn3/1B3N2/PPP2PPP/RNBQ1RK1%20b%20kq%20-", penwidth=1]
+"r1bqkb1r/2pp1ppp/p1n5/1p2p3/B2Pn3/5N2/PPP2PPP/RNBQ1RK1 w kq -" -> "r1bqkb1r/2pp1ppp/p1n5/1p2p3/3Pn3/1B3N2/PPP2PPP/RNBQ1RK1 b kq -" [label="Bb3", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqkb1r/2pp1ppp/p1n5/1p2p3/B2Pn3/5N2/PPP2PPP/RNBQ1RK1 w kq -" [label="11", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqkb1r/2pp1ppp/p1n5/1p2p3/B2Pn3/5N2/PPP2PPP/RNBQ1RK1%20w%20kq%20-", penwidth=1]
+"r1bqkb1r/1ppp1ppp/p1n5/4p3/B2Pn3/5N2/PPP2PPP/RNBQ1RK1 b kq -" -> "r1bqkb1r/2pp1ppp/p1n5/1p2p3/B2Pn3/5N2/PPP2PPP/RNBQ1RK1 w kq -" [label="b5", color=burlywood4, penwidth=1, fontname="Helvectica"]
+"r1bqkb1r/1ppp1ppp/p1n5/4p3/B2Pn3/5N2/PPP2PPP/RNBQ1RK1 b kq -" [label="-8", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqkb1r/1ppp1ppp/p1n5/4p3/B2Pn3/5N2/PPP2PPP/RNBQ1RK1%20b%20kq%20-", penwidth=1]
+"r1bqkb1r/1ppp1ppp/p1n5/4p3/B3n3/5N2/PPPP1PPP/RNBQ1RK1 w kq -" -> "r1bqkb1r/1ppp1ppp/p1n5/4p3/B2Pn3/5N2/PPP2PPP/RNBQ1RK1 b kq -" [label="d4", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqkb1r/1ppp1ppp/p1n5/2n1p3/B7/5N2/PPPP1PPP/RNBQR1K1 w kq -" [label="1", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqkb1r/1ppp1ppp/p1n5/2n1p3/B7/5N2/PPPP1PPP/RNBQR1K1%20w%20kq%20-", penwidth=1]
+"r1bqkb1r/1ppp1ppp/p1n5/4p3/B3n3/5N2/PPPP1PPP/RNBQR1K1 b kq -" -> "r1bqkb1r/1ppp1ppp/p1n5/2n1p3/B7/5N2/PPPP1PPP/RNBQR1K1 w kq -" [label="Nc5", color=burlywood4, penwidth=1, fontname="Helvectica"]
+"r1bqkb1r/1ppp1ppp/p1n5/4p3/B3n3/5N2/PPPP1PPP/RNBQR1K1 b kq -" [label="0", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqkb1r/1ppp1ppp/p1n5/4p3/B3n3/5N2/PPPP1PPP/RNBQR1K1%20b%20kq%20-", penwidth=1]
+"r1bqkb1r/1ppp1ppp/p1n5/4p3/B3n3/5N2/PPPP1PPP/RNBQ1RK1 w kq -" -> "r1bqkb1r/1ppp1ppp/p1n5/4p3/B3n3/5N2/PPPP1PPP/RNBQR1K1 b kq -" [label="Re1", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqkb1r/1ppp1ppp/p1n5/4p3/B3n3/5N2/PPPP1PPP/RNBQ1RK1 w kq -" [label="10", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqkb1r/1ppp1ppp/p1n5/4p3/B3n3/5N2/PPPP1PPP/RNBQ1RK1%20w%20kq%20-", penwidth=1]
+"r1bqkb1r/1ppp1ppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 b kq -" -> "r1bqkb1r/1ppp1ppp/p1n5/4p3/B3n3/5N2/PPPP1PPP/RNBQ1RK1 w kq -" [label="Nxe4", color=burlywood4, penwidth=1, fontname="Helvectica"]
+"r2qkb1r/1bpp1ppp/p1n2n2/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQ1RK1 w kq -" [label="17", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r2qkb1r/1bpp1ppp/p1n2n2/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQ1RK1%20w%20kq%20-", penwidth=1]
+"r1bqkb1r/2pp1ppp/p1n2n2/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQ1RK1 b kq -" -> "r2qkb1r/1bpp1ppp/p1n2n2/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQ1RK1 w kq -" [label="Bb7", color=burlywood4, penwidth=1, fontname="Helvectica"]
+"r1bqkb1r/2pp1ppp/p1n2n2/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQ1RK1 b kq -" [label="-16", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqkb1r/2pp1ppp/p1n2n2/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQ1RK1%20b%20kq%20-", penwidth=1]
+"r1bqkb1r/2pp1ppp/p1n2n2/1p2p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 w kq -" -> "r1bqkb1r/2pp1ppp/p1n2n2/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQ1RK1 b kq -" [label="Bb3", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqkb1r/2pp1ppp/p1n2n2/1p2p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 w kq -" [label="16", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqkb1r/2pp1ppp/p1n2n2/1p2p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1%20w%20kq%20-", penwidth=1]
+"r1bqkb1r/1ppp1ppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 b kq -" -> "r1bqkb1r/2pp1ppp/p1n2n2/1p2p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 w kq -" [label="b5", color=burlywood4, penwidth=1, fontname="Helvectica"]
+"r1bqk2r/2pp1ppp/p1n2n2/1pb1p3/B3P3/2P2N2/PP1P1PPP/RNBQ1RK1 w kq -" [label="16", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk2r/2pp1ppp/p1n2n2/1pb1p3/B3P3/2P2N2/PP1P1PPP/RNBQ1RK1%20w%20kq%20-", penwidth=1]
+"r1bqk2r/1ppp1ppp/p1n2n2/2b1p3/B3P3/2P2N2/PP1P1PPP/RNBQ1RK1 b kq -" -> "r1bqk2r/2pp1ppp/p1n2n2/1pb1p3/B3P3/2P2N2/PP1P1PPP/RNBQ1RK1 w kq -" [label="b5", color=burlywood4, penwidth=1, fontname="Helvectica"]
+"r1bqk2r/1ppp1ppp/p1n2n2/2b1p3/B3P3/2P2N2/PP1P1PPP/RNBQ1RK1 b kq -" [label="-15", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk2r/1ppp1ppp/p1n2n2/2b1p3/B3P3/2P2N2/PP1P1PPP/RNBQ1RK1%20b%20kq%20-", penwidth=1]
+"r1bqk2r/1ppp1ppp/p1n2n2/2b1p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 w kq -" -> "r1bqk2r/1ppp1ppp/p1n2n2/2b1p3/B3P3/2P2N2/PP1P1PPP/RNBQ1RK1 b kq -" [label="c3", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqk2r/1ppp1ppp/p1n2n2/2b1N3/B3P3/8/PPPP1PPP/RNBQ1RK1 b kq -" [label="0", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk2r/1ppp1ppp/p1n2n2/2b1N3/B3P3/8/PPPP1PPP/RNBQ1RK1%20b%20kq%20-", penwidth=1]
+"r1bqk2r/1ppp1ppp/p1n2n2/2b1p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 w kq -" -> "r1bqk2r/1ppp1ppp/p1n2n2/2b1N3/B3P3/8/PPPP1PPP/RNBQ1RK1 b kq -" [label="Nxe5", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqk2r/1ppp1ppp/p1n2n2/2b1p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 w kq -" [label="17", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk2r/1ppp1ppp/p1n2n2/2b1p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1%20w%20kq%20-", penwidth=1]
+"r1bqkb1r/1ppp1ppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 b kq -" -> "r1bqk2r/1ppp1ppp/p1n2n2/2b1p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 w kq -" [label="Bc5", color=burlywood4, penwidth=1, fontname="Helvectica"]
+"r1bqkb1r/2p2ppp/p1pp1n2/4p3/4P3/5N2/PPPP1PPP/RNBQ1RK1 w kq -" [label="18", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqkb1r/2p2ppp/p1pp1n2/4p3/4P3/5N2/PPPP1PPP/RNBQ1RK1%20w%20kq%20-", penwidth=1]
+"r1bqkb1r/1pp2ppp/p1Bp1n2/4p3/4P3/5N2/PPPP1PPP/RNBQ1RK1 b kq -" -> "r1bqkb1r/2p2ppp/p1pp1n2/4p3/4P3/5N2/PPPP1PPP/RNBQ1RK1 w kq -" [label="bxc6", color=burlywood4, penwidth=1, fontname="Helvectica"]
+"r1bqkb1r/1pp2ppp/p1Bp1n2/4p3/4P3/5N2/PPPP1PPP/RNBQ1RK1 b kq -" [label="-17", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqkb1r/1pp2ppp/p1Bp1n2/4p3/4P3/5N2/PPPP1PPP/RNBQ1RK1%20b%20kq%20-", penwidth=1]
+"r1bqkb1r/1pp2ppp/p1np1n2/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 w kq -" -> "r1bqkb1r/1pp2ppp/p1Bp1n2/4p3/4P3/5N2/PPPP1PPP/RNBQ1RK1 b kq -" [label="Bxc6+", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqkb1r/1pp2ppp/p1np1n2/4p3/B3P3/2P2N2/PP1P1PPP/RNBQ1RK1 b kq -" [label="-17", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqkb1r/1pp2ppp/p1np1n2/4p3/B3P3/2P2N2/PP1P1PPP/RNBQ1RK1%20b%20kq%20-", penwidth=1]
+"r1bqkb1r/1pp2ppp/p1np1n2/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 w kq -" -> "r1bqkb1r/1pp2ppp/p1np1n2/4p3/B3P3/2P2N2/PP1P1PPP/RNBQ1RK1 b kq -" [label="c3", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqkb1r/1pp2ppp/p1np1n2/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 w kq -" [label="19", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqkb1r/1pp2ppp/p1np1n2/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1%20w%20kq%20-", penwidth=1]
+"r1bqkb1r/1ppp1ppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 b kq -" -> "r1bqkb1r/1pp2ppp/p1np1n2/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 w kq -" [label="d6", color=burlywood4, penwidth=1, fontname="Helvectica"]
+"r1bqkb1r/1ppp1ppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 b kq -" [fontname="Courier", label="♜ · ♝ ♛ ♚ ♝ · ♜
+· ♟ ♟ ♟ · ♟ ♟ ♟
+♟ · ♞ · · ♞ · ·
+· · · · ♟ · · ·
+♗ · · · ♙ · · ·
+· · · · · ♘ · ·
+♙ ♙ ♙ ♙ · ♙ ♙ ♙
+♖ ♘ ♗ ♕ · ♖ ♔ ·", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqkb1r/1ppp1ppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1%20b%20kq%20-", penwidth=3]
+"r1bqkb1r/1ppp1ppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQK2R w KQkq -" -> "r1bqkb1r/1ppp1ppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 b kq -" [label="O-O", color=gold, penwidth=3, fontname="Helvetica-bold"]
+"r1bqkb1r/1ppp1ppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQK2R w KQkq -" [label="2", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqkb1r/1ppp1ppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQK2R%20w%20KQkq%20-", penwidth=3]
+"r1bqkbnr/1ppp1ppp/p1n5/4p3/B3P3/5N2/PPPP1PPP/RNBQK2R b KQkq -" -> "r1bqkb1r/1ppp1ppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQK2R w KQkq -" [label="Nf6", color=burlywood4, penwidth=3, fontname="Helvetica-bold"]
+"r1bq1rk1/1pppbppp/p1n2n2/4p3/B1P1P3/2NP1N2/PP3PPP/R1BQK2R b KQ -" [label="-10", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bq1rk1/1pppbppp/p1n2n2/4p3/B1P1P3/2NP1N2/PP3PPP/R1BQK2R%20b%20KQ%20-", penwidth=1]
+"r1bq1rk1/1pppbppp/p1n2n2/4p3/B1P1P3/2N2N2/PP1P1PPP/R1BQK2R w KQ -" -> "r1bq1rk1/1pppbppp/p1n2n2/4p3/B1P1P3/2NP1N2/PP3PPP/R1BQK2R b KQ -" [label="d3", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bq1rk1/1pppbppp/p1n2n2/4p3/B1P1P3/2N2N2/PP1P1PPP/R1BQK2R w KQ -" [label="10", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bq1rk1/1pppbppp/p1n2n2/4p3/B1P1P3/2N2N2/PP1P1PPP/R1BQK2R%20w%20KQ%20-", penwidth=1]
+"r1bqk2r/1pppbppp/p1n2n2/4p3/B1P1P3/2N2N2/PP1P1PPP/R1BQK2R b KQkq -" -> "r1bq1rk1/1pppbppp/p1n2n2/4p3/B1P1P3/2N2N2/PP1P1PPP/R1BQK2R w KQ -" [label="O-O", color=burlywood4, penwidth=1, fontname="Helvectica"]
+"r1bqk2r/1pppbppp/p1n2n2/4p3/B1P1P3/2N2N2/PP1P1PPP/R1BQK2R b KQkq -" [label="-7", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk2r/1pppbppp/p1n2n2/4p3/B1P1P3/2N2N2/PP1P1PPP/R1BQK2R%20b%20KQkq%20-", penwidth=1]
+"r1bqk2r/1pppbppp/p1n2n2/4p3/B1P1P3/5N2/PP1P1PPP/RNBQK2R w KQkq -" -> "r1bqk2r/1pppbppp/p1n2n2/4p3/B1P1P3/2N2N2/PP1P1PPP/R1BQK2R b KQkq -" [label="Nc3", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bq1rk1/1pppbppp/p1n2n2/4p3/B1P1P3/3P1N2/PP3PPP/RNBQK2R w KQ -" [label="10", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bq1rk1/1pppbppp/p1n2n2/4p3/B1P1P3/3P1N2/PP3PPP/RNBQK2R%20w%20KQ%20-", penwidth=1]
+"r1bqk2r/1pppbppp/p1n2n2/4p3/B1P1P3/3P1N2/PP3PPP/RNBQK2R b KQkq -" -> "r1bq1rk1/1pppbppp/p1n2n2/4p3/B1P1P3/3P1N2/PP3PPP/RNBQK2R w KQ -" [label="O-O", color=burlywood4, penwidth=1, fontname="Helvectica"]
+"r1bqk2r/1pppbppp/p1n2n2/4p3/B1P1P3/3P1N2/PP3PPP/RNBQK2R b KQkq -" [label="-9", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk2r/1pppbppp/p1n2n2/4p3/B1P1P3/3P1N2/PP3PPP/RNBQK2R%20b%20KQkq%20-", penwidth=1]
+"r1bqk2r/1pppbppp/p1n2n2/4p3/B1P1P3/5N2/PP1P1PPP/RNBQK2R w KQkq -" -> "r1bqk2r/1pppbppp/p1n2n2/4p3/B1P1P3/3P1N2/PP3PPP/RNBQK2R b KQkq -" [label="d3", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqk2r/1pppbppp/p1n2n2/4p3/B1P1P3/5N2/PP1P1PPP/RNBQK2R w KQkq -" [label="9", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk2r/1pppbppp/p1n2n2/4p3/B1P1P3/5N2/PP1P1PPP/RNBQK2R%20w%20KQkq%20-", penwidth=1]
+"r1bqk1nr/1pppbppp/p1n5/4p3/B1P1P3/5N2/PP1P1PPP/RNBQK2R b KQkq -" -> "r1bqk2r/1pppbppp/p1n2n2/4p3/B1P1P3/5N2/PP1P1PPP/RNBQK2R w KQkq -" [label="Nf6", color=burlywood4, penwidth=1, fontname="Helvectica"]
+"r1bqk1nr/1pppbppp/p1n5/4p3/B1P1P3/5N2/PP1P1PPP/RNBQK2R b KQkq -" [label="-9", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk1nr/1pppbppp/p1n5/4p3/B1P1P3/5N2/PP1P1PPP/RNBQK2R%20b%20KQkq%20-", penwidth=1]
+"r1bqk1nr/1pppbppp/p1n5/4p3/B3P3/5N2/PPPP1PPP/RNBQK2R w KQkq -" -> "r1bqk1nr/1pppbppp/p1n5/4p3/B1P1P3/5N2/PP1P1PPP/RNBQK2R b KQkq -" [label="c4", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqk2r/1pp1bppp/p1np1n2/4p3/B3P3/P1N2N2/1PPP1PPP/R1BQK2R w KQkq -" [label="10", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk2r/1pp1bppp/p1np1n2/4p3/B3P3/P1N2N2/1PPP1PPP/R1BQK2R%20w%20KQkq%20-", penwidth=1]
+"r1bqk1nr/1pp1bppp/p1np4/4p3/B3P3/P1N2N2/1PPP1PPP/R1BQK2R b KQkq -" -> "r1bqk2r/1pp1bppp/p1np1n2/4p3/B3P3/P1N2N2/1PPP1PPP/R1BQK2R w KQkq -" [label="Nf6", color=burlywood4, penwidth=1, fontname="Helvectica"]
+"r1bqk1nr/1pp1bppp/p1np4/4p3/B3P3/P1N2N2/1PPP1PPP/R1BQK2R b KQkq -" [label="-9", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk1nr/1pp1bppp/p1np4/4p3/B3P3/P1N2N2/1PPP1PPP/R1BQK2R%20b%20KQkq%20-", penwidth=1]
+"r1bqk1nr/1pp1bppp/p1np4/4p3/B3P3/P4N2/1PPP1PPP/RNBQK2R w KQkq -" -> "r1bqk1nr/1pp1bppp/p1np4/4p3/B3P3/P1N2N2/1PPP1PPP/R1BQK2R b KQkq -" [label="Nc3", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqk1nr/1pp1bppp/p1np4/4p3/B3P3/P4N1P/1PPP1PP1/RNBQK2R b KQkq -" [label="0", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk1nr/1pp1bppp/p1np4/4p3/B3P3/P4N1P/1PPP1PP1/RNBQK2R%20b%20KQkq%20-", penwidth=1]
+"r1bqk1nr/1pp1bppp/p1np4/4p3/B3P3/P4N2/1PPP1PPP/RNBQK2R w KQkq -" -> "r1bqk1nr/1pp1bppp/p1np4/4p3/B3P3/P4N1P/1PPP1PP1/RNBQK2R b KQkq -" [label="h3", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqk1nr/1pp1bppp/p1np4/4p3/B3P3/P4N2/1PPP1PPP/RNBQK2R w KQkq -" [label="9", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk1nr/1pp1bppp/p1np4/4p3/B3P3/P4N2/1PPP1PPP/RNBQK2R%20w%20KQkq%20-", penwidth=1]
+"r1bqk1nr/1pppbppp/p1n5/4p3/B3P3/P4N2/1PPP1PPP/RNBQK2R b KQkq -" -> "r1bqk1nr/1pp1bppp/p1np4/4p3/B3P3/P4N2/1PPP1PPP/RNBQK2R w KQkq -" [label="d6", color=burlywood4, penwidth=1, fontname="Helvectica"]
+"r1bqk1nr/1pppbppp/p1n5/4p3/B3P3/P4N2/1PPP1PPP/RNBQK2R b KQkq -" [label="-7", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk1nr/1pppbppp/p1n5/4p3/B3P3/P4N2/1PPP1PPP/RNBQK2R%20b%20KQkq%20-", penwidth=1]
+"r1bqk1nr/1pppbppp/p1n5/4p3/B3P3/5N2/PPPP1PPP/RNBQK2R w KQkq -" -> "r1bqk1nr/1pppbppp/p1n5/4p3/B3P3/P4N2/1PPP1PPP/RNBQK2R b KQkq -" [label="a3", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqk1nr/1pp1bppp/p1np4/4p3/B1P1P3/3P1N2/PP3PPP/RNBQK2R b KQkq -" [label="-6", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk1nr/1pp1bppp/p1np4/4p3/B1P1P3/3P1N2/PP3PPP/RNBQK2R%20b%20KQkq%20-", penwidth=1]
+"r1bqk1nr/1pp1bppp/p1np4/4p3/B3P3/3P1N2/PPP2PPP/RNBQK2R w KQkq -" -> "r1bqk1nr/1pp1bppp/p1np4/4p3/B1P1P3/3P1N2/PP3PPP/RNBQK2R b KQkq -" [label="c4", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqk1nr/1pp1bppp/p1np4/4p3/B3P3/3P1N2/PPP2PPP/RNBQK2R w KQkq -" [label="6", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk1nr/1pp1bppp/p1np4/4p3/B3P3/3P1N2/PPP2PPP/RNBQK2R%20w%20KQkq%20-", penwidth=1]
+"r1bqk1nr/1pppbppp/p1n5/4p3/B3P3/3P1N2/PPP2PPP/RNBQK2R b KQkq -" -> "r1bqk1nr/1pp1bppp/p1np4/4p3/B3P3/3P1N2/PPP2PPP/RNBQK2R w KQkq -" [label="d6", color=burlywood4, penwidth=1, fontname="Helvectica"]
+"r1bqk1nr/2ppbppp/p1n5/1p2p3/B3P3/3P1N2/PPP2PPP/RNBQK2R w KQkq -" [label="13", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk1nr/2ppbppp/p1n5/1p2p3/B3P3/3P1N2/PPP2PPP/RNBQK2R%20w%20KQkq%20-", penwidth=1]
+"r1bqk1nr/1pppbppp/p1n5/4p3/B3P3/3P1N2/PPP2PPP/RNBQK2R b KQkq -" -> "r1bqk1nr/2ppbppp/p1n5/1p2p3/B3P3/3P1N2/PPP2PPP/RNBQK2R w KQkq -" [label="b5", color=burlywood4, penwidth=1, fontname="Helvectica"]
+"r1bqk1nr/1pppbppp/p1n5/4p3/B3P3/3P1N2/PPP2PPP/RNBQK2R b KQkq -" [label="-4", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk1nr/1pppbppp/p1n5/4p3/B3P3/3P1N2/PPP2PPP/RNBQK2R%20b%20KQkq%20-", penwidth=1]
+"r1bqk1nr/1pppbppp/p1n5/4p3/B3P3/5N2/PPPP1PPP/RNBQK2R w KQkq -" -> "r1bqk1nr/1pppbppp/p1n5/4p3/B3P3/3P1N2/PPP2PPP/RNBQK2R b KQkq -" [label="d3", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/2PP1N2/PP3PPP/RNBQK2R b KQkq -" [label="-2", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/2PP1N2/PP3PPP/RNBQK2R%20b%20KQkq%20-", penwidth=1]
+"r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/2P2N2/PP1P1PPP/RNBQK2R w KQkq -" -> "r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/2PP1N2/PP3PPP/RNBQK2R b KQkq -" [label="d3", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/2P2N2/PP1P1PPP/RNBQK2R w KQkq -" [label="3", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/2P2N2/PP1P1PPP/RNBQK2R%20w%20KQkq%20-", penwidth=1]
+"r1bqk1nr/1pppbppp/p1n5/4p3/B3P3/2P2N2/PP1P1PPP/RNBQK2R b KQkq -" -> "r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/2P2N2/PP1P1PPP/RNBQK2R w KQkq -" [label="Nf6", color=burlywood4, penwidth=1, fontname="Helvectica"]
+"r1bqk1nr/1pppbppp/p1n5/4p3/B3P3/2P2N2/PP1P1PPP/RNBQK2R b KQkq -" [label="-2", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk1nr/1pppbppp/p1n5/4p3/B3P3/2P2N2/PP1P1PPP/RNBQK2R%20b%20KQkq%20-", penwidth=1]
+"r1bqk1nr/1pppbppp/p1n5/4p3/B3P3/5N2/PPPP1PPP/RNBQK2R w KQkq -" -> "r1bqk1nr/1pppbppp/p1n5/4p3/B3P3/2P2N2/PP1P1PPP/RNBQK2R b KQkq -" [label="c3", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqk1nr/1pppbppp/p1n5/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 b kq -" -> "r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 w kq -" [label="Nf6", color=burlywood4, penwidth=1, fontname="Helvectica"]
+"r1bqk1nr/1pppbppp/p1n5/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 b kq -" [label="-2", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk1nr/1pppbppp/p1n5/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1%20b%20kq%20-", penwidth=1]
+"r1bqk1nr/1pppbppp/p1n5/4p3/B3P3/5N2/PPPP1PPP/RNBQK2R w KQkq -" -> "r1bqk1nr/1pppbppp/p1n5/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 b kq -" [label="O-O", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/2N2N2/PPPP1PPP/R1BQK2R w KQkq -" [label="2", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/2N2N2/PPPP1PPP/R1BQK2R%20w%20KQkq%20-", penwidth=1]
+"r1bqk1nr/1pppbppp/p1n5/4p3/B3P3/2N2N2/PPPP1PPP/R1BQK2R b KQkq -" -> "r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/2N2N2/PPPP1PPP/R1BQK2R w KQkq -" [label="Nf6", color=burlywood4, penwidth=1, fontname="Helvectica"]
+"r1bqk1nr/1pppbppp/p1n5/4p3/B3P3/2N2N2/PPPP1PPP/R1BQK2R b KQkq -" [label="-1", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk1nr/1pppbppp/p1n5/4p3/B3P3/2N2N2/PPPP1PPP/R1BQK2R%20b%20KQkq%20-", penwidth=1]
+"r1bqk1nr/1pppbppp/p1n5/4p3/B3P3/5N2/PPPP1PPP/RNBQK2R w KQkq -" -> "r1bqk1nr/1pppbppp/p1n5/4p3/B3P3/2N2N2/PPPP1PPP/R1BQK2R b KQkq -" [label="Nc3", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/5N1P/PPPP1PP1/RNBQK2R w KQkq -" [label="1", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/5N1P/PPPP1PP1/RNBQK2R%20w%20KQkq%20-", penwidth=1]
+"r1bqk1nr/1pppbppp/p1n5/4p3/B3P3/5N1P/PPPP1PP1/RNBQK2R b KQkq -" -> "r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/5N1P/PPPP1PP1/RNBQK2R w KQkq -" [label="Nf6", color=burlywood4, penwidth=1, fontname="Helvectica"]
+"r1bqk1nr/1pppbppp/p1n5/4p3/B3P3/5N1P/PPPP1PP1/RNBQK2R b KQkq -" [label="-1", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk1nr/1pppbppp/p1n5/4p3/B3P3/5N1P/PPPP1PP1/RNBQK2R%20b%20KQkq%20-", penwidth=1]
+"r1bqk1nr/1pppbppp/p1n5/4p3/B3P3/5N2/PPPP1PPP/RNBQK2R w KQkq -" -> "r1bqk1nr/1pppbppp/p1n5/4p3/B3P3/5N1P/PPPP1PP1/RNBQK2R b KQkq -" [label="h3", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqk1nr/1pp1bppp/p1p5/4p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq -" [label="0", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk1nr/1pp1bppp/p1p5/4p3/4P3/5N2/PPPP1PPP/RNBQK2R%20w%20KQkq%20-", penwidth=1]
+"r1bqk1nr/1pppbppp/p1B5/4p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq -" -> "r1bqk1nr/1pp1bppp/p1p5/4p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq -" [label="dxc6", color=burlywood4, penwidth=1, fontname="Helvectica"]
+"r1bqk1nr/1pppbppp/p1B5/4p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq -" [label="0", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk1nr/1pppbppp/p1B5/4p3/4P3/5N2/PPPP1PPP/RNBQK2R%20b%20KQkq%20-", penwidth=1]
+"r1bqk1nr/1pppbppp/p1n5/4p3/B3P3/5N2/PPPP1PPP/RNBQK2R w KQkq -" -> "r1bqk1nr/1pppbppp/p1B5/4p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq -" [label="Bxc6", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqk1nr/1pppbppp/p1n5/8/B2pP3/5N2/PPP2PPP/RNBQK2R w KQkq -" [label="2", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk1nr/1pppbppp/p1n5/8/B2pP3/5N2/PPP2PPP/RNBQK2R%20w%20KQkq%20-", penwidth=1]
+"r1bqk1nr/1pppbppp/p1n5/4p3/B2PP3/5N2/PPP2PPP/RNBQK2R b KQkq -" -> "r1bqk1nr/1pppbppp/p1n5/8/B2pP3/5N2/PPP2PPP/RNBQK2R w KQkq -" [label="exd4", color=burlywood4, penwidth=1, fontname="Helvectica"]
+"r1bqk1nr/1pppbppp/p1n5/4p3/B2PP3/5N2/PPP2PPP/RNBQK2R b KQkq -" [label="-1", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk1nr/1pppbppp/p1n5/4p3/B2PP3/5N2/PPP2PPP/RNBQK2R%20b%20KQkq%20-", penwidth=1]
+"r1bqk1nr/1pppbppp/p1n5/4p3/B3P3/5N2/PPPP1PPP/RNBQK2R w KQkq -" -> "r1bqk1nr/1pppbppp/p1n5/4p3/B2PP3/5N2/PPP2PPP/RNBQK2R b KQkq -" [label="d4", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqk1nr/1pppbppp/p1n5/4p3/B3P3/5N2/PPPP1PPP/RNBQK2R w KQkq -" [fontname="Courier", label="♜ · ♝ ♛ ♚ · ♞ ♜
+· ♟ ♟ ♟ ♝ ♟ ♟ ♟
+♟ · ♞ · · · · ·
+· · · · ♟ · · ·
+♗ · · · ♙ · · ·
+· · · · · ♘ · ·
+♙ ♙ ♙ ♙ · ♙ ♙ ♙
+♖ ♘ ♗ ♕ ♔ · · ♖", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk1nr/1pppbppp/p1n5/4p3/B3P3/5N2/PPPP1PPP/RNBQK2R%20w%20KQkq%20-", penwidth=1]
+"r1bqkbnr/1ppp1ppp/p1n5/4p3/B3P3/5N2/PPPP1PPP/RNBQK2R b KQkq -" -> "r1bqk1nr/1pppbppp/p1n5/4p3/B3P3/5N2/PPPP1PPP/RNBQK2R w KQkq -" [label="Be7", color=burlywood4, penwidth=1, fontname="Helvectica"]
+"r2qkbnr/1bpp1ppp/p1n5/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQ1RK1 b kq -" -> "r2qkb1r/1bpp1ppp/p1n2n2/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQ1RK1 w kq -" [label="Nf6", color=burlywood4, penwidth=1, fontname="Helvectica"]
+"r2qkbnr/1bpp1ppp/p1n5/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQ1RK1 b kq -" [label="-16", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r2qkbnr/1bpp1ppp/p1n5/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQ1RK1%20b%20kq%20-", penwidth=1]
+"r2qkbnr/1bpp1ppp/p1n5/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQK2R w KQkq -" -> "r2qkbnr/1bpp1ppp/p1n5/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQ1RK1 b kq -" [label="O-O", color=gold, penwidth=1, fontname="Helvectica"]
+"r2qkbnr/1bpp1ppp/p1n5/1p2p3/4P3/1BN2N2/PPPP1PPP/R1BQK2R b KQkq -" [label="-18", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r2qkbnr/1bpp1ppp/p1n5/1p2p3/4P3/1BN2N2/PPPP1PPP/R1BQK2R%20b%20KQkq%20-", penwidth=1]
+"r2qkbnr/1bpp1ppp/p1n5/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQK2R w KQkq -" -> "r2qkbnr/1bpp1ppp/p1n5/1p2p3/4P3/1BN2N2/PPPP1PPP/R1BQK2R b KQkq -" [label="Nc3", color=gold, penwidth=1, fontname="Helvectica"]
+"r2qkbnr/1bpp1ppp/p1n5/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQK2R w KQkq -" [label="18", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r2qkbnr/1bpp1ppp/p1n5/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQK2R%20w%20KQkq%20-", penwidth=1]
+"r1bqkbnr/2pp1ppp/p1n5/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQK2R b KQkq -" -> "r2qkbnr/1bpp1ppp/p1n5/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQK2R w KQkq -" [label="Bb7", color=burlywood4, penwidth=1, fontname="Helvectica"]
+"r1bqkbnr/2pp1ppp/p1n5/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQK2R b KQkq -" [label="-17", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqkbnr/2pp1ppp/p1n5/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQK2R%20b%20KQkq%20-", penwidth=1]
+"r1bqkbnr/2pp1ppp/p1n5/1p2p3/B3P3/5N2/PPPP1PPP/RNBQK2R w KQkq -" -> "r1bqkbnr/2pp1ppp/p1n5/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQK2R b KQkq -" [label="Bb3", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqkbnr/2pp1ppp/p1n5/1p2p3/B3P3/5N2/PPPP1PPP/RNBQK2R w KQkq -" [label="17", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqkbnr/2pp1ppp/p1n5/1p2p3/B3P3/5N2/PPPP1PPP/RNBQK2R%20w%20KQkq%20-", penwidth=1]
+"r1bqkbnr/1ppp1ppp/p1n5/4p3/B3P3/5N2/PPPP1PPP/RNBQK2R b KQkq -" -> "r1bqkbnr/2pp1ppp/p1n5/1p2p3/B3P3/5N2/PPPP1PPP/RNBQK2R w KQkq -" [label="b5", color=burlywood4, penwidth=1, fontname="Helvectica"]
+"r1bqkbnr/1pp2ppp/p1np4/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 b kq -" -> "r1bqkb1r/1pp2ppp/p1np1n2/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 w kq -" [label="Nf6", color=burlywood4, penwidth=1, fontname="Helvectica"]
+"r1bqkbnr/1pp2ppp/p1np4/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 b kq -" [label="-18", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqkbnr/1pp2ppp/p1np4/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1%20b%20kq%20-", penwidth=1]
+"r1bqkbnr/1pp2ppp/p1np4/4p3/B3P3/5N2/PPPP1PPP/RNBQK2R w KQkq -" -> "r1bqkbnr/1pp2ppp/p1np4/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 b kq -" [label="O-O", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqkb1r/1pp2ppp/p1np1n2/4p3/B2PP3/2P2N2/PP3PPP/RNBQK2R b KQkq -" [label="-18", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqkb1r/1pp2ppp/p1np1n2/4p3/B2PP3/2P2N2/PP3PPP/RNBQK2R%20b%20KQkq%20-", penwidth=1]
+"r1bqkb1r/1pp2ppp/p1np1n2/4p3/B3P3/2P2N2/PP1P1PPP/RNBQK2R w KQkq -" -> "r1bqkb1r/1pp2ppp/p1np1n2/4p3/B2PP3/2P2N2/PP3PPP/RNBQK2R b KQkq -" [label="d4", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqkb1r/1pp2ppp/p1np1n2/4p3/B3P3/2P2N2/PP1P1PPP/RNBQK2R w KQkq -" [label="20", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqkb1r/1pp2ppp/p1np1n2/4p3/B3P3/2P2N2/PP1P1PPP/RNBQK2R%20w%20KQkq%20-", penwidth=1]
+"r1bqkbnr/1pp2ppp/p1np4/4p3/B3P3/2P2N2/PP1P1PPP/RNBQK2R b KQkq -" -> "r1bqkb1r/1pp2ppp/p1np1n2/4p3/B3P3/2P2N2/PP1P1PPP/RNBQK2R w KQkq -" [label="Nf6", color=burlywood4, penwidth=1, fontname="Helvectica"]
+"r1bqkbnr/1pp2ppp/p1np4/4p3/B3P3/2P2N2/PP1P1PPP/RNBQK2R b KQkq -" [label="-19", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqkbnr/1pp2ppp/p1np4/4p3/B3P3/2P2N2/PP1P1PPP/RNBQK2R%20b%20KQkq%20-", penwidth=1]
+"r1bqkbnr/1pp2ppp/p1np4/4p3/B3P3/5N2/PPPP1PPP/RNBQK2R w KQkq -" -> "r1bqkbnr/1pp2ppp/p1np4/4p3/B3P3/2P2N2/PP1P1PPP/RNBQK2R b KQkq -" [label="c3", color=gold, penwidth=1, fontname="Helvectica"]
+"r2qkbnr/1pp2ppp/p1np4/4p3/B1P1P1b1/5N2/PP1P1PPP/RNBQK2R w KQkq -" [label="17", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r2qkbnr/1pp2ppp/p1np4/4p3/B1P1P1b1/5N2/PP1P1PPP/RNBQK2R%20w%20KQkq%20-", penwidth=1]
+"r1bqkbnr/1pp2ppp/p1np4/4p3/B1P1P3/5N2/PP1P1PPP/RNBQK2R b KQkq -" -> "r2qkbnr/1pp2ppp/p1np4/4p3/B1P1P1b1/5N2/PP1P1PPP/RNBQK2R w KQkq -" [label="Bg4", color=burlywood4, penwidth=1, fontname="Helvectica"]
+"r1bqkbnr/1pp2ppp/p1np4/4p3/B1P1P3/5N2/PP1P1PPP/RNBQK2R b KQkq -" [label="-16", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqkbnr/1pp2ppp/p1np4/4p3/B1P1P3/5N2/PP1P1PPP/RNBQK2R%20b%20KQkq%20-", penwidth=1]
+"r1bqkbnr/1pp2ppp/p1np4/4p3/B3P3/5N2/PPPP1PPP/RNBQK2R w KQkq -" -> "r1bqkbnr/1pp2ppp/p1np4/4p3/B1P1P3/5N2/PP1P1PPP/RNBQK2R b KQkq -" [label="c4", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqkb1r/1pp2ppp/p1np1n2/4p3/B3P3/2N2N2/PPPP1PPP/R1BQK2R w KQkq -" [label="20", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqkb1r/1pp2ppp/p1np1n2/4p3/B3P3/2N2N2/PPPP1PPP/R1BQK2R%20w%20KQkq%20-", penwidth=1]
+"r1bqkbnr/1pp2ppp/p1np4/4p3/B3P3/2N2N2/PPPP1PPP/R1BQK2R b KQkq -" -> "r1bqkb1r/1pp2ppp/p1np1n2/4p3/B3P3/2N2N2/PPPP1PPP/R1BQK2R w KQkq -" [label="Nf6", color=burlywood4, penwidth=1, fontname="Helvectica"]
+"r1bqkbnr/1pp2ppp/p1np4/4p3/B3P3/2N2N2/PPPP1PPP/R1BQK2R b KQkq -" [label="-17", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqkbnr/1pp2ppp/p1np4/4p3/B3P3/2N2N2/PPPP1PPP/R1BQK2R%20b%20KQkq%20-", penwidth=1]
+"r1bqkbnr/1pp2ppp/p1np4/4p3/B3P3/5N2/PPPP1PPP/RNBQK2R w KQkq -" -> "r1bqkbnr/1pp2ppp/p1np4/4p3/B3P3/2N2N2/PPPP1PPP/R1BQK2R b KQkq -" [label="Nc3", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqkbnr/2p2ppp/p1pp4/4p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq -" [label="9", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqkbnr/2p2ppp/p1pp4/4p3/4P3/5N2/PPPP1PPP/RNBQK2R%20w%20KQkq%20-", penwidth=1]
+"r1bqkbnr/1pp2ppp/p1Bp4/4p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq -" -> "r1bqkbnr/2p2ppp/p1pp4/4p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq -" [label="bxc6", color=burlywood4, penwidth=1, fontname="Helvectica"]
+"r1bqkbnr/1pp2ppp/p1Bp4/4p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq -" [label="-6", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqkbnr/1pp2ppp/p1Bp4/4p3/4P3/5N2/PPPP1PPP/RNBQK2R%20b%20KQkq%20-", penwidth=1]
+"r1bqkbnr/1pp2ppp/p1np4/4p3/B3P3/5N2/PPPP1PPP/RNBQK2R w KQkq -" -> "r1bqkbnr/1pp2ppp/p1Bp4/4p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq -" [label="Bxc6+", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqkbnr/1pp2ppp/p1np4/4p3/B3P3/P4N2/1PPP1PPP/RNBQK2R b KQkq -" [label="-5", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqkbnr/1pp2ppp/p1np4/4p3/B3P3/P4N2/1PPP1PPP/RNBQK2R%20b%20KQkq%20-", penwidth=1]
+"r1bqkbnr/1pp2ppp/p1np4/4p3/B3P3/5N2/PPPP1PPP/RNBQK2R w KQkq -" -> "r1bqkbnr/1pp2ppp/p1np4/4p3/B3P3/P4N2/1PPP1PPP/RNBQK2R b KQkq -" [label="a3", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqkbnr/1pp2ppp/p1np4/4p3/B2PP3/5N2/PPP2PPP/RNBQK2R b KQkq -" [label="-13", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqkbnr/1pp2ppp/p1np4/4p3/B2PP3/5N2/PPP2PPP/RNBQK2R%20b%20KQkq%20-", penwidth=1]
+"r1bqkbnr/1pp2ppp/p1np4/4p3/B3P3/5N2/PPPP1PPP/RNBQK2R w KQkq -" -> "r1bqkbnr/1pp2ppp/p1np4/4p3/B2PP3/5N2/PPP2PPP/RNBQK2R b KQkq -" [label="d4", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqkbnr/1pp2ppp/p1np4/4p3/B3P3/5N2/PPPP1PPP/RNBQK2R w KQkq -" [fontname="Courier", label="♜ · ♝ ♛ ♚ ♝ ♞ ♜
+· ♟ ♟ · · ♟ ♟ ♟
+♟ · ♞ ♟ · · · ·
+· · · · ♟ · · ·
+♗ · · · ♙ · · ·
+· · · · · ♘ · ·
+♙ ♙ ♙ ♙ · ♙ ♙ ♙
+♖ ♘ ♗ ♕ ♔ · · ♖", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqkbnr/1pp2ppp/p1np4/4p3/B3P3/5N2/PPPP1PPP/RNBQK2R%20w%20KQkq%20-", penwidth=1]
+"r1bqkbnr/1ppp1ppp/p1n5/4p3/B3P3/5N2/PPPP1PPP/RNBQK2R b KQkq -" -> "r1bqkbnr/1pp2ppp/p1np4/4p3/B3P3/5N2/PPPP1PPP/RNBQK2R w KQkq -" [label="d6", color=burlywood4, penwidth=1, fontname="Helvectica"]
+"r1bqkbnr/1ppp1ppp/p1n5/4p3/B3P3/5N2/PPPP1PPP/RNBQK2R b KQkq -" [fontname="Courier", label="♜ · ♝ ♛ ♚ ♝ ♞ ♜
+· ♟ ♟ ♟ · ♟ ♟ ♟
+♟ · ♞ · · · · ·
+· · · · ♟ · · ·
+♗ · · · ♙ · · ·
+· · · · · ♘ · ·
+♙ ♙ ♙ ♙ · ♙ ♙ ♙
+♖ ♘ ♗ ♕ ♔ · · ♖", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqkbnr/1ppp1ppp/p1n5/4p3/B3P3/5N2/PPPP1PPP/RNBQK2R%20b%20KQkq%20-", penwidth=3]
+"r1bqkbnr/1ppp1ppp/p1n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq -" -> "r1bqkbnr/1ppp1ppp/p1n5/4p3/B3P3/5N2/PPPP1PPP/RNBQK2R b KQkq -" [label="Ba4", color=gold, penwidth=3, fontname="Helvetica-bold"]
+"r1bqkbnr/1pp2ppp/p1p5/4p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq -" [label="0", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqkbnr/1pp2ppp/p1p5/4p3/4P3/5N2/PPPP1PPP/RNBQK2R%20w%20KQkq%20-", penwidth=1]
+"r1bqkbnr/1ppp1ppp/p1B5/4p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq -" -> "r1bqkbnr/1pp2ppp/p1p5/4p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq -" [label="dxc6", color=burlywood4, penwidth=1, fontname="Helvectica"]
+"r1bqkbnr/1ppp1ppp/p1B5/4p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq -" [label="0", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqkbnr/1ppp1ppp/p1B5/4p3/4P3/5N2/PPPP1PPP/RNBQK2R%20b%20KQkq%20-", penwidth=1]
+"r1bqkbnr/1ppp1ppp/p1n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq -" -> "r1bqkbnr/1ppp1ppp/p1B5/4p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq -" [label="Bxc6", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqkbnr/1ppp1ppp/p1n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq -" [label="2", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqkbnr/1ppp1ppp/p1n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R%20w%20KQkq%20-", penwidth=3]
+"r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq -" -> "r1bqkbnr/1ppp1ppp/p1n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq -" [label="a6", color=burlywood4, penwidth=3, fontname="Helvetica-bold"]
+"r1bqk2r/ppppbppp/2nn4/4N3/8/8/PPPP1PPP/RNBQRBK1 b kq -" [label="-7", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk2r/ppppbppp/2nn4/4N3/8/8/PPPP1PPP/RNBQRBK1%20b%20kq%20-", penwidth=1]
+"r1bqk2r/ppppbppp/2nn4/1B2N3/8/8/PPPP1PPP/RNBQR1K1 w kq -" -> "r1bqk2r/ppppbppp/2nn4/4N3/8/8/PPPP1PPP/RNBQRBK1 b kq -" [label="Bf1", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqk2r/ppppbppp/2nn4/1B2N3/8/8/PPPP1PPP/RNBQR1K1 w kq -" [label="9", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk2r/ppppbppp/2nn4/1B2N3/8/8/PPPP1PPP/RNBQR1K1%20w%20kq%20-", penwidth=1]
+"r1bqkb1r/pppp1ppp/2nn4/1B2N3/8/8/PPPP1PPP/RNBQR1K1 b kq -" -> "r1bqk2r/ppppbppp/2nn4/1B2N3/8/8/PPPP1PPP/RNBQR1K1 w kq -" [label="Be7", color=burlywood4, penwidth=1, fontname="Helvectica"]
+"r1bqkb1r/pppp1ppp/3n4/1B2n3/8/8/PPPP1PPP/RNBQR1K1 w kq -" [label="12", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqkb1r/pppp1ppp/3n4/1B2n3/8/8/PPPP1PPP/RNBQR1K1%20w%20kq%20-", penwidth=1]
+"r1bqkb1r/pppp1ppp/2nn4/1B2N3/8/8/PPPP1PPP/RNBQR1K1 b kq -" -> "r1bqkb1r/pppp1ppp/3n4/1B2n3/8/8/PPPP1PPP/RNBQR1K1 w kq -" [label="Nxe5", color=burlywood4, penwidth=1, fontname="Helvectica"]
+"r1bqkb1r/pppp1ppp/2nn4/1B2N3/8/8/PPPP1PPP/RNBQR1K1 b kq -" [label="-7", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqkb1r/pppp1ppp/2nn4/1B2N3/8/8/PPPP1PPP/RNBQR1K1%20b%20kq%20-", penwidth=1]
+"r1bqkb1r/pppp1ppp/2nn4/1B2p3/8/5N2/PPPP1PPP/RNBQR1K1 w kq -" -> "r1bqkb1r/pppp1ppp/2nn4/1B2N3/8/8/PPPP1PPP/RNBQR1K1 b kq -" [label="Nxe5", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqk2r/ppppbppp/2nn4/4p3/B7/5N2/PPPP1PPP/RNBQR1K1 w kq -" [label="0", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk2r/ppppbppp/2nn4/4p3/B7/5N2/PPPP1PPP/RNBQR1K1%20w%20kq%20-", penwidth=1]
+"r1bqkb1r/pppp1ppp/2nn4/4p3/B7/5N2/PPPP1PPP/RNBQR1K1 b kq -" -> "r1bqk2r/ppppbppp/2nn4/4p3/B7/5N2/PPPP1PPP/RNBQR1K1 w kq -" [label="Be7", color=burlywood4, penwidth=1, fontname="Helvectica"]
+"r1bqkb1r/pppp1ppp/2nn4/4p3/B7/5N2/PPPP1PPP/RNBQR1K1 b kq -" [label="0", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqkb1r/pppp1ppp/2nn4/4p3/B7/5N2/PPPP1PPP/RNBQR1K1%20b%20kq%20-", penwidth=1]
+"r1bqkb1r/pppp1ppp/2nn4/1B2p3/8/5N2/PPPP1PPP/RNBQR1K1 w kq -" -> "r1bqkb1r/pppp1ppp/2nn4/4p3/B7/5N2/PPPP1PPP/RNBQR1K1 b kq -" [label="Ba4", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqkb1r/pppp1ppp/2nn4/1B2p3/P7/5N2/1PPP1PPP/RNBQR1K1 b kq -" [label="0", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqkb1r/pppp1ppp/2nn4/1B2p3/P7/5N2/1PPP1PPP/RNBQR1K1%20b%20kq%20-", penwidth=1]
+"r1bqkb1r/pppp1ppp/2nn4/1B2p3/8/5N2/PPPP1PPP/RNBQR1K1 w kq -" -> "r1bqkb1r/pppp1ppp/2nn4/1B2p3/P7/5N2/1PPP1PPP/RNBQR1K1 b kq -" [label="a4", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqkb1r/pppp1ppp/2nn4/4p3/8/5N2/PPPP1PPP/RNBQRBK1 b kq -" [label="0", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqkb1r/pppp1ppp/2nn4/4p3/8/5N2/PPPP1PPP/RNBQRBK1%20b%20kq%20-", penwidth=1]
+"r1bqkb1r/pppp1ppp/2nn4/1B2p3/8/5N2/PPPP1PPP/RNBQR1K1 w kq -" -> "r1bqkb1r/pppp1ppp/2nn4/4p3/8/5N2/PPPP1PPP/RNBQRBK1 b kq -" [label="Bf1", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqkb1r/pppp1ppp/2nn4/1B2p3/8/5N2/PPPP1PPP/RNBQR1K1 w kq -" [fontname="Courier", label="♜ · ♝ ♛ ♚ ♝ · ♜
+♟ ♟ ♟ ♟ · ♟ ♟ ♟
+· · ♞ ♞ · · · ·
+· ♗ · · ♟ · · ·
+· · · · · · · ·
+· · · · · ♘ · ·
+♙ ♙ ♙ ♙ · ♙ ♙ ♙
+♖ ♘ ♗ ♕ ♖ · ♔ ·", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqkb1r/pppp1ppp/2nn4/1B2p3/8/5N2/PPPP1PPP/RNBQR1K1%20w%20kq%20-", penwidth=1]
+"r1bqkb1r/pppp1ppp/2n5/1B2p3/4n3/5N2/PPPP1PPP/RNBQR1K1 b kq -" -> "r1bqkb1r/pppp1ppp/2nn4/1B2p3/8/5N2/PPPP1PPP/RNBQR1K1 w kq -" [label="Nd6", color=burlywood4, penwidth=1, fontname="Helvectica"]
+"r1bqkb1r/pppp1ppp/2n5/1B2p3/4n3/5N2/PPPP1PPP/RNBQR1K1 b kq -" [label="-5", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqkb1r/pppp1ppp/2n5/1B2p3/4n3/5N2/PPPP1PPP/RNBQR1K1%20b%20kq%20-", penwidth=1]
+"r1bqkb1r/pppp1ppp/2n5/1B2p3/4n3/5N2/PPPP1PPP/RNBQ1RK1 w kq -" -> "r1bqkb1r/pppp1ppp/2n5/1B2p3/4n3/5N2/PPPP1PPP/RNBQR1K1 b kq -" [label="Re1", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqkb1r/ppp2ppp/2pn4/4p3/3P4/5N2/PPP2PPP/RNBQ1RK1 w kq -" [label="7", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqkb1r/ppp2ppp/2pn4/4p3/3P4/5N2/PPP2PPP/RNBQ1RK1%20w%20kq%20-", penwidth=1]
+"r1bqkb1r/pppp1ppp/2Bn4/4p3/3P4/5N2/PPP2PPP/RNBQ1RK1 b kq -" -> "r1bqkb1r/ppp2ppp/2pn4/4p3/3P4/5N2/PPP2PPP/RNBQ1RK1 w kq -" [label="dxc6", color=burlywood4, penwidth=1, fontname="Helvectica"]
+"r1bqkb1r/pppp1ppp/2Bn4/4p3/3P4/5N2/PPP2PPP/RNBQ1RK1 b kq -" [label="-4", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqkb1r/pppp1ppp/2Bn4/4p3/3P4/5N2/PPP2PPP/RNBQ1RK1%20b%20kq%20-", penwidth=1]
+"r1bqkb1r/pppp1ppp/2nn4/1B2p3/3P4/5N2/PPP2PPP/RNBQ1RK1 w kq -" -> "r1bqkb1r/pppp1ppp/2Bn4/4p3/3P4/5N2/PPP2PPP/RNBQ1RK1 b kq -" [label="Bxc6", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqkb1r/pppp1ppp/2nn4/1B2P3/8/5N2/PPP2PPP/RNBQ1RK1 b kq -" [label="0", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqkb1r/pppp1ppp/2nn4/1B2P3/8/5N2/PPP2PPP/RNBQ1RK1%20b%20kq%20-", penwidth=1]
+"r1bqkb1r/pppp1ppp/2nn4/1B2p3/3P4/5N2/PPP2PPP/RNBQ1RK1 w kq -" -> "r1bqkb1r/pppp1ppp/2nn4/1B2P3/8/5N2/PPP2PPP/RNBQ1RK1 b kq -" [label="dxe5", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqkb1r/pppp1ppp/2nn4/1B2p3/3P4/5N2/PPP2PPP/RNBQ1RK1 w kq -" [label="5", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqkb1r/pppp1ppp/2nn4/1B2p3/3P4/5N2/PPP2PPP/RNBQ1RK1%20w%20kq%20-", penwidth=1]
+"r1bqkb1r/pppp1ppp/2n5/1B2p3/3Pn3/5N2/PPP2PPP/RNBQ1RK1 b kq -" -> "r1bqkb1r/pppp1ppp/2nn4/1B2p3/3P4/5N2/PPP2PPP/RNBQ1RK1 w kq -" [label="Nd6", color=burlywood4, penwidth=1, fontname="Helvectica"]
+"r1bqkb1r/pppp1ppp/2n5/1B2p3/3Pn3/5N2/PPP2PPP/RNBQ1RK1 b kq -" [label="-3", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqkb1r/pppp1ppp/2n5/1B2p3/3Pn3/5N2/PPP2PPP/RNBQ1RK1%20b%20kq%20-", penwidth=1]
+"r1bqkb1r/pppp1ppp/2n5/1B2p3/4n3/5N2/PPPP1PPP/RNBQ1RK1 w kq -" -> "r1bqkb1r/pppp1ppp/2n5/1B2p3/3Pn3/5N2/PPP2PPP/RNBQ1RK1 b kq -" [label="d4", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqkb1r/pppp1ppp/2n5/1B2p3/4n3/5N2/PPPP1PPP/RNBQ1RK1 w kq -" [label="7", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqkb1r/pppp1ppp/2n5/1B2p3/4n3/5N2/PPPP1PPP/RNBQ1RK1%20w%20kq%20-", penwidth=1]
+"r1bqkb1r/pppp1ppp/2n2n2/1B2p3/4P3/5N2/PPPP1PPP/RNBQ1RK1 b kq -" -> "r1bqkb1r/pppp1ppp/2n5/1B2p3/4n3/5N2/PPPP1PPP/RNBQ1RK1 w kq -" [label="Nxe4", color=burlywood4, penwidth=1, fontname="Helvectica"]
+"r1bqkb1r/pppp1ppp/2n2n2/1B2p3/4P3/5N2/PPPP1PPP/RNBQ1RK1 b kq -" [label="-6", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqkb1r/pppp1ppp/2n2n2/1B2p3/4P3/5N2/PPPP1PPP/RNBQ1RK1%20b%20kq%20-", penwidth=1]
+"r1bqkb1r/pppp1ppp/2n2n2/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq -" -> "r1bqkb1r/pppp1ppp/2n2n2/1B2p3/4P3/5N2/PPPP1PPP/RNBQ1RK1 b kq -" [label="O-O", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqk2r/pppn1ppp/2p5/2b1p3/4P3/3P1N2/PPP2PPP/RNBQ1RK1 w kq -" [label="7", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk2r/pppn1ppp/2p5/2b1p3/4P3/3P1N2/PPP2PPP/RNBQ1RK1%20w%20kq%20-", penwidth=1]
+"r1bqk2r/ppp2ppp/2p2n2/2b1p3/4P3/3P1N2/PPP2PPP/RNBQ1RK1 b kq -" -> "r1bqk2r/pppn1ppp/2p5/2b1p3/4P3/3P1N2/PPP2PPP/RNBQ1RK1 w kq -" [label="Nd7", color=burlywood4, penwidth=1, fontname="Helvectica"]
+"r1bqk2r/ppp2ppp/2p2n2/2b1p3/4P3/3P1N2/PPP2PPP/RNBQ1RK1 b kq -" [label="-5", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk2r/ppp2ppp/2p2n2/2b1p3/4P3/3P1N2/PPP2PPP/RNBQ1RK1%20b%20kq%20-", penwidth=1]
+"r1bqk2r/ppp2ppp/2p2n2/2b1p3/4P3/3P1N2/PPP2PPP/RNBQK2R w KQkq -" -> "r1bqk2r/ppp2ppp/2p2n2/2b1p3/4P3/3P1N2/PPP2PPP/RNBQ1RK1 b kq -" [label="O-O", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqk2r/ppp2ppp/2p2n2/2b1p3/4P3/3P1N2/PPPN1PPP/R1BQK2R b KQkq -" [label="-6", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk2r/ppp2ppp/2p2n2/2b1p3/4P3/3P1N2/PPPN1PPP/R1BQK2R%20b%20KQkq%20-", penwidth=1]
+"r1bqk2r/ppp2ppp/2p2n2/2b1p3/4P3/3P1N2/PPP2PPP/RNBQK2R w KQkq -" -> "r1bqk2r/ppp2ppp/2p2n2/2b1p3/4P3/3P1N2/PPPN1PPP/R1BQK2R b KQkq -" [label="Nbd2", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqk2r/ppp2ppp/2p2n2/2b1p3/4P3/3P1N2/PPP2PPP/RNBQK2R w KQkq -" [label="7", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk2r/ppp2ppp/2p2n2/2b1p3/4P3/3P1N2/PPP2PPP/RNBQK2R%20w%20KQkq%20-", penwidth=1]
+"r1bqk2r/pppp1ppp/2B2n2/2b1p3/4P3/3P1N2/PPP2PPP/RNBQK2R b KQkq -" -> "r1bqk2r/ppp2ppp/2p2n2/2b1p3/4P3/3P1N2/PPP2PPP/RNBQK2R w KQkq -" [label="dxc6", color=burlywood4, penwidth=1, fontname="Helvectica"]
+"r1bqk2r/pppp1ppp/2B2n2/2b1p3/4P3/3P1N2/PPP2PPP/RNBQK2R b KQkq -" [label="-5", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk2r/pppp1ppp/2B2n2/2b1p3/4P3/3P1N2/PPP2PPP/RNBQK2R%20b%20KQkq%20-", penwidth=1]
+"r1bqk2r/pppp1ppp/2n2n2/1Bb1p3/4P3/3P1N2/PPP2PPP/RNBQK2R w KQkq -" -> "r1bqk2r/pppp1ppp/2B2n2/2b1p3/4P3/3P1N2/PPP2PPP/RNBQK2R b KQkq -" [label="Bxc6", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqk2r/pppp1ppp/2n2n2/1B2p3/4P3/3PPN2/PPP3PP/RN1QK2R b KQkq -" [label="-9", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk2r/pppp1ppp/2n2n2/1B2p3/4P3/3PPN2/PPP3PP/RN1QK2R%20b%20KQkq%20-", penwidth=1]
+"r1bqk2r/pppp1ppp/2n2n2/1B2p3/4P3/3PbN2/PPP2PPP/RN1QK2R w KQkq -" -> "r1bqk2r/pppp1ppp/2n2n2/1B2p3/4P3/3PPN2/PPP3PP/RN1QK2R b KQkq -" [label="fxe3", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqk2r/pppp1ppp/2n2n2/1B2p3/4P3/3PbN2/PPP2PPP/RN1QK2R w KQkq -" [label="9", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk2r/pppp1ppp/2n2n2/1B2p3/4P3/3PbN2/PPP2PPP/RN1QK2R%20w%20KQkq%20-", penwidth=1]
+"r1bqk2r/pppp1ppp/2n2n2/1Bb1p3/4P3/3PBN2/PPP2PPP/RN1QK2R b KQkq -" -> "r1bqk2r/pppp1ppp/2n2n2/1B2p3/4P3/3PbN2/PPP2PPP/RN1QK2R w KQkq -" [label="Bxe3", color=burlywood4, penwidth=1, fontname="Helvectica"]
+"r1b1k2r/ppppqppp/2n2n2/1Bb1p3/4P3/3PBN2/PPP2PPP/RN1QK2R w KQkq -" [label="10", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1b1k2r/ppppqppp/2n2n2/1Bb1p3/4P3/3PBN2/PPP2PPP/RN1QK2R%20w%20KQkq%20-", penwidth=1]
+"r1bqk2r/pppp1ppp/2n2n2/1Bb1p3/4P3/3PBN2/PPP2PPP/RN1QK2R b KQkq -" -> "r1b1k2r/ppppqppp/2n2n2/1Bb1p3/4P3/3PBN2/PPP2PPP/RN1QK2R w KQkq -" [label="Qe7", color=burlywood4, penwidth=1, fontname="Helvectica"]
+"r1bqk2r/pppp1ppp/2n2n2/1Bb1p3/4P3/3PBN2/PPP2PPP/RN1QK2R b KQkq -" [label="-6", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk2r/pppp1ppp/2n2n2/1Bb1p3/4P3/3PBN2/PPP2PPP/RN1QK2R%20b%20KQkq%20-", penwidth=1]
+"r1bqk2r/pppp1ppp/2n2n2/1Bb1p3/4P3/3P1N2/PPP2PPP/RNBQK2R w KQkq -" -> "r1bqk2r/pppp1ppp/2n2n2/1Bb1p3/4P3/3PBN2/PPP2PPP/RN1QK2R b KQkq -" [label="Be3", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bq1rk1/pppp1ppp/2n2n2/1Bb1p3/4P3/3P1N2/PPPN1PPP/R1BQK2R w KQ -" [label="6", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bq1rk1/pppp1ppp/2n2n2/1Bb1p3/4P3/3P1N2/PPPN1PPP/R1BQK2R%20w%20KQ%20-", penwidth=1]
+"r1bqk2r/pppp1ppp/2n2n2/1Bb1p3/4P3/3P1N2/PPPN1PPP/R1BQK2R b KQkq -" -> "r1bq1rk1/pppp1ppp/2n2n2/1Bb1p3/4P3/3P1N2/PPPN1PPP/R1BQK2R w KQ -" [label="O-O", color=burlywood4, penwidth=1, fontname="Helvectica"]
+"r1bqk2r/pppp1ppp/2n2n2/1Bb1p3/4P3/3P1N2/PPPN1PPP/R1BQK2R b KQkq -" [label="-4", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk2r/pppp1ppp/2n2n2/1Bb1p3/4P3/3P1N2/PPPN1PPP/R1BQK2R%20b%20KQkq%20-", penwidth=1]
+"r1bqk2r/pppp1ppp/2n2n2/1Bb1p3/4P3/3P1N2/PPP2PPP/RNBQK2R w KQkq -" -> "r1bqk2r/pppp1ppp/2n2n2/1Bb1p3/4P3/3P1N2/PPPN1PPP/R1BQK2R b KQkq -" [label="Nbd2", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bq1rk1/pppp1ppp/2n2n2/1Bb1p3/4P3/2PP1N2/PP3PPP/RNBQK2R w KQ -" [label="3", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bq1rk1/pppp1ppp/2n2n2/1Bb1p3/4P3/2PP1N2/PP3PPP/RNBQK2R%20w%20KQ%20-", penwidth=1]
+"r1bqk2r/pppp1ppp/2n2n2/1Bb1p3/4P3/2PP1N2/PP3PPP/RNBQK2R b KQkq -" -> "r1bq1rk1/pppp1ppp/2n2n2/1Bb1p3/4P3/2PP1N2/PP3PPP/RNBQK2R w KQ -" [label="O-O", color=burlywood4, penwidth=1, fontname="Helvectica"]
+"r1bqk2r/pppp1ppp/2n2n2/1Bb1p3/4P3/2PP1N2/PP3PPP/RNBQK2R b KQkq -" [label="-2", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk2r/pppp1ppp/2n2n2/1Bb1p3/4P3/2PP1N2/PP3PPP/RNBQK2R%20b%20KQkq%20-", penwidth=1]
+"r1bqk2r/pppp1ppp/2n2n2/1Bb1p3/4P3/3P1N2/PPP2PPP/RNBQK2R w KQkq -" -> "r1bqk2r/pppp1ppp/2n2n2/1Bb1p3/4P3/2PP1N2/PP3PPP/RNBQK2R b KQkq -" [label="c3", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqk2r/pppp1pp1/2n2n1p/1Bb1p1B1/4P3/3P1N2/PPP2PPP/RN1QK2R w KQkq -" [label="3", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk2r/pppp1pp1/2n2n1p/1Bb1p1B1/4P3/3P1N2/PPP2PPP/RN1QK2R%20w%20KQkq%20-", penwidth=1]
+"r1bqk2r/pppp1ppp/2n2n2/1Bb1p1B1/4P3/3P1N2/PPP2PPP/RN1QK2R b KQkq -" -> "r1bqk2r/pppp1pp1/2n2n1p/1Bb1p1B1/4P3/3P1N2/PPP2PPP/RN1QK2R w KQkq -" [label="h6", color=burlywood4, penwidth=1, fontname="Helvectica"]
+"r1bqk2r/pppp1ppp/2n2n2/1Bb1p1B1/4P3/3P1N2/PPP2PPP/RN1QK2R b KQkq -" [label="-2", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk2r/pppp1ppp/2n2n2/1Bb1p1B1/4P3/3P1N2/PPP2PPP/RN1QK2R%20b%20KQkq%20-", penwidth=1]
+"r1bqk2r/pppp1ppp/2n2n2/1Bb1p3/4P3/3P1N2/PPP2PPP/RNBQK2R w KQkq -" -> "r1bqk2r/pppp1ppp/2n2n2/1Bb1p1B1/4P3/3P1N2/PPP2PPP/RN1QK2R b KQkq -" [label="Bg5", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqk2r/pppp1ppp/2n2n2/1Bb1p3/4P3/3P1N2/PPP2PPP/RNBQ1RK1 b kq -" [label="0", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk2r/pppp1ppp/2n2n2/1Bb1p3/4P3/3P1N2/PPP2PPP/RNBQ1RK1%20b%20kq%20-", penwidth=1]
+"r1bqk2r/pppp1ppp/2n2n2/1Bb1p3/4P3/3P1N2/PPP2PPP/RNBQK2R w KQkq -" -> "r1bqk2r/pppp1ppp/2n2n2/1Bb1p3/4P3/3P1N2/PPP2PPP/RNBQ1RK1 b kq -" [label="O-O", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqk2r/pppp1ppp/2n2n2/1Bb1p3/4P3/3P1N2/PPP2PPP/RNBQK2R w KQkq -" [fontname="Courier", label="♜ · ♝ ♛ ♚ · · ♜
+♟ ♟ ♟ ♟ · ♟ ♟ ♟
+· · ♞ · · ♞ · ·
+· ♗ ♝ · ♟ · · ·
+· · · · ♙ · · ·
+· · · ♙ · ♘ · ·
+♙ ♙ ♙ · · ♙ ♙ ♙
+♖ ♘ ♗ ♕ ♔ · · ♖", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk2r/pppp1ppp/2n2n2/1Bb1p3/4P3/3P1N2/PPP2PPP/RNBQK2R%20w%20KQkq%20-", penwidth=1]
+"r1bqkb1r/pppp1ppp/2n2n2/1B2p3/4P3/3P1N2/PPP2PPP/RNBQK2R b KQkq -" -> "r1bqk2r/pppp1ppp/2n2n2/1Bb1p3/4P3/3P1N2/PPP2PPP/RNBQK2R w KQkq -" [label="Bc5", color=burlywood4, penwidth=1, fontname="Helvectica"]
+"r1bqk2r/ppp1bppp/2np1n2/1B2p3/4P3/3P1N2/PPP2PPP/RNBQR1K1 b kq -" [label="-16", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk2r/ppp1bppp/2np1n2/1B2p3/4P3/3P1N2/PPP2PPP/RNBQR1K1%20b%20kq%20-", penwidth=1]
+"r1bqk2r/ppp1bppp/2np1n2/1B2p3/4P3/3P1N2/PPP2PPP/RNBQ1RK1 w kq -" -> "r1bqk2r/ppp1bppp/2np1n2/1B2p3/4P3/3P1N2/PPP2PPP/RNBQR1K1 b kq -" [label="Re1", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqk2r/ppp1bppp/2np1n2/1B2p3/4P3/3P1N2/PPP2PPP/RNBQ1RK1 w kq -" [label="17", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk2r/ppp1bppp/2np1n2/1B2p3/4P3/3P1N2/PPP2PPP/RNBQ1RK1%20w%20kq%20-", penwidth=1]
+"r1bqkb1r/ppp2ppp/2np1n2/1B2p3/4P3/3P1N2/PPP2PPP/RNBQ1RK1 b kq -" -> "r1bqk2r/ppp1bppp/2np1n2/1B2p3/4P3/3P1N2/PPP2PPP/RNBQ1RK1 w kq -" [label="Be7", color=burlywood4, penwidth=1, fontname="Helvectica"]
+"r1bqkb1r/ppp2ppp/2np1n2/1B2p3/4P3/3P1N2/PPP2PPP/RNBQ1RK1 b kq -" [label="-15", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqkb1r/ppp2ppp/2np1n2/1B2p3/4P3/3P1N2/PPP2PPP/RNBQ1RK1%20b%20kq%20-", penwidth=1]
+"r1bqkb1r/ppp2ppp/2np1n2/1B2p3/4P3/3P1N2/PPP2PPP/RNBQK2R w KQkq -" -> "r1bqkb1r/ppp2ppp/2np1n2/1B2p3/4P3/3P1N2/PPP2PPP/RNBQ1RK1 b kq -" [label="O-O", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqk2r/ppp1bppp/2np1n2/1B2p3/4P3/2NP1N2/PPP2PPP/R1BQK2R w KQkq -" [label="15", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk2r/ppp1bppp/2np1n2/1B2p3/4P3/2NP1N2/PPP2PPP/R1BQK2R%20w%20KQkq%20-", penwidth=1]
+"r1bqkb1r/ppp2ppp/2np1n2/1B2p3/4P3/2NP1N2/PPP2PPP/R1BQK2R b KQkq -" -> "r1bqk2r/ppp1bppp/2np1n2/1B2p3/4P3/2NP1N2/PPP2PPP/R1BQK2R w KQkq -" [label="Be7", color=burlywood4, penwidth=1, fontname="Helvectica"]
+"r1bqkb1r/ppp2ppp/2np1n2/1B2p3/4P3/2NP1N2/PPP2PPP/R1BQK2R b KQkq -" [label="-15", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqkb1r/ppp2ppp/2np1n2/1B2p3/4P3/2NP1N2/PPP2PPP/R1BQK2R%20b%20KQkq%20-", penwidth=1]
+"r1bqkb1r/ppp2ppp/2np1n2/1B2p3/4P3/3P1N2/PPP2PPP/RNBQK2R w KQkq -" -> "r1bqkb1r/ppp2ppp/2np1n2/1B2p3/4P3/2NP1N2/PPP2PPP/R1BQK2R b KQkq -" [label="Nc3", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqkb1r/ppp2ppp/2np1n2/1B2p3/3PP3/5N2/PPP2PPP/RNBQK2R b KQkq -" [label="-10", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqkb1r/ppp2ppp/2np1n2/1B2p3/3PP3/5N2/PPP2PPP/RNBQK2R%20b%20KQkq%20-", penwidth=1]
+"r1bqkb1r/ppp2ppp/2np1n2/1B2p3/4P3/3P1N2/PPP2PPP/RNBQK2R w KQkq -" -> "r1bqkb1r/ppp2ppp/2np1n2/1B2p3/3PP3/5N2/PPP2PPP/RNBQK2R b KQkq -" [label="d4", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqkb1r/ppp2ppp/2np1n2/1B2p3/4P3/2PP1N2/PP3PPP/RNBQK2R b KQkq -" [label="-12", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqkb1r/ppp2ppp/2np1n2/1B2p3/4P3/2PP1N2/PP3PPP/RNBQK2R%20b%20KQkq%20-", penwidth=1]
+"r1bqkb1r/ppp2ppp/2np1n2/1B2p3/4P3/3P1N2/PPP2PPP/RNBQK2R w KQkq -" -> "r1bqkb1r/ppp2ppp/2np1n2/1B2p3/4P3/2PP1N2/PP3PPP/RNBQK2R b KQkq -" [label="c3", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqkb1r/ppp2ppp/2np1n2/1B2p3/4P3/3P1N1P/PPP2PP1/RNBQK2R b KQkq -" [label="-11", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqkb1r/ppp2ppp/2np1n2/1B2p3/4P3/3P1N1P/PPP2PP1/RNBQK2R%20b%20KQkq%20-", penwidth=1]
+"r1bqkb1r/ppp2ppp/2np1n2/1B2p3/4P3/3P1N2/PPP2PPP/RNBQK2R w KQkq -" -> "r1bqkb1r/ppp2ppp/2np1n2/1B2p3/4P3/3P1N1P/PPP2PP1/RNBQK2R b KQkq -" [label="h3", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqkb1r/ppp2ppp/2np1n2/1B2p3/4P3/3P1N2/PPP2PPP/RNBQK2R w KQkq -" [fontname="Courier", label="♜ · ♝ ♛ ♚ ♝ · ♜
+♟ ♟ ♟ · · ♟ ♟ ♟
+· · ♞ ♟ · ♞ · ·
+· ♗ · · ♟ · · ·
+· · · · ♙ · · ·
+· · · ♙ · ♘ · ·
+♙ ♙ ♙ · · ♙ ♙ ♙
+♖ ♘ ♗ ♕ ♔ · · ♖", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqkb1r/ppp2ppp/2np1n2/1B2p3/4P3/3P1N2/PPP2PPP/RNBQK2R%20w%20KQkq%20-", penwidth=1]
+"r1bqkb1r/pppp1ppp/2n2n2/1B2p3/4P3/3P1N2/PPP2PPP/RNBQK2R b KQkq -" -> "r1bqkb1r/ppp2ppp/2np1n2/1B2p3/4P3/3P1N2/PPP2PPP/RNBQK2R w KQkq -" [label="d6", color=burlywood4, penwidth=1, fontname="Helvectica"]
+"r1bqk2r/1ppp1ppp/p1nb1n2/1B2p3/4P3/3P1N2/PPPN1PPP/R1BQK2R w KQkq -" [label="20", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk2r/1ppp1ppp/p1nb1n2/1B2p3/4P3/3P1N2/PPPN1PPP/R1BQK2R%20w%20KQkq%20-", penwidth=1]
+"r1bqk2r/pppp1ppp/2nb1n2/1B2p3/4P3/3P1N2/PPPN1PPP/R1BQK2R b KQkq -" -> "r1bqk2r/1ppp1ppp/p1nb1n2/1B2p3/4P3/3P1N2/PPPN1PPP/R1BQK2R w KQkq -" [label="a6", color=burlywood4, penwidth=1, fontname="Helvectica"]
+"r1bqk2r/pppp1ppp/2nb1n2/1B2p3/4P3/3P1N2/PPPN1PPP/R1BQK2R b KQkq -" [label="-19", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk2r/pppp1ppp/2nb1n2/1B2p3/4P3/3P1N2/PPPN1PPP/R1BQK2R%20b%20KQkq%20-", penwidth=1]
+"r1bqk2r/pppp1ppp/2nb1n2/1B2p3/4P3/3P1N2/PPP2PPP/RNBQK2R w KQkq -" -> "r1bqk2r/pppp1ppp/2nb1n2/1B2p3/4P3/3P1N2/PPPN1PPP/R1BQK2R b KQkq -" [label="Nbd2", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqk2r/pppp1ppp/2nb1n2/1B2p3/4P3/2PP1N2/PP3PPP/RNBQK2R b KQkq -" [label="-18", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk2r/pppp1ppp/2nb1n2/1B2p3/4P3/2PP1N2/PP3PPP/RNBQK2R%20b%20KQkq%20-", penwidth=1]
+"r1bqk2r/pppp1ppp/2nb1n2/1B2p3/4P3/3P1N2/PPP2PPP/RNBQK2R w KQkq -" -> "r1bqk2r/pppp1ppp/2nb1n2/1B2p3/4P3/2PP1N2/PP3PPP/RNBQK2R b KQkq -" [label="c3", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqk2r/pppp1ppp/2nb1n2/1B2p3/4P3/3P1N2/PPP2PPP/RNBQK2R w KQkq -" [label="21", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqk2r/pppp1ppp/2nb1n2/1B2p3/4P3/3P1N2/PPP2PPP/RNBQK2R%20w%20KQkq%20-", penwidth=1]
+"r1bqkb1r/pppp1ppp/2n2n2/1B2p3/4P3/3P1N2/PPP2PPP/RNBQK2R b KQkq -" -> "r1bqk2r/pppp1ppp/2nb1n2/1B2p3/4P3/3P1N2/PPP2PPP/RNBQK2R w KQkq -" [label="Bd6", color=burlywood4, penwidth=1, fontname="Helvectica"]
+"r1bqkb1r/pppp1ppp/2n2n2/1B2p3/4P3/3P1N2/PPP2PPP/RNBQK2R b KQkq -" [fontname="Courier", label="♜ · ♝ ♛ ♚ ♝ · ♜
+♟ ♟ ♟ ♟ · ♟ ♟ ♟
+· · ♞ · · ♞ · ·
+· ♗ · · ♟ · · ·
+· · · · ♙ · · ·
+· · · ♙ · ♘ · ·
+♙ ♙ ♙ · · ♙ ♙ ♙
+♖ ♘ ♗ ♕ ♔ · · ♖", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqkb1r/pppp1ppp/2n2n2/1B2p3/4P3/3P1N2/PPP2PPP/RNBQK2R%20b%20KQkq%20-", penwidth=1]
+"r1bqkb1r/pppp1ppp/2n2n2/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq -" -> "r1bqkb1r/pppp1ppp/2n2n2/1B2p3/4P3/3P1N2/PPP2PPP/RNBQK2R b KQkq -" [label="d3", color=gold, penwidth=1, fontname="Helvectica"]
+"r1bqkb1r/pppp1ppp/2n2n2/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq -" [label="8", color=gold, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqkb1r/pppp1ppp/2n2n2/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R%20w%20KQkq%20-", penwidth=1]
+"r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq -" -> "r1bqkb1r/pppp1ppp/2n2n2/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq -" [label="Nf6", color=burlywood4, penwidth=1, fontname="Helvectica"]
+"r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq -" [label="-1", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R%20b%20KQkq%20-", penwidth=3]
+"r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq -" [fontname="Courier", label="♜ · ♝ ♛ ♚ ♝ ♞ ♜
+♟ ♟ ♟ ♟ · ♟ ♟ ♟
+· · ♞ · · · · ·
+· ♗ · · ♟ · · ·
+· · · · ♙ · · ·
+· · · · · ♘ · ·
+♙ ♙ ♙ ♙ · ♙ ♙ ♙
+♖ ♘ ♗ ♕ ♔ · · ♖", color=burlywood4, shape=box, URL="https://www.chessdb.cn/queryc_en/?r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R%20b%20KQkq%20-", penwidth=3]
+}
