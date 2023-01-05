@@ -13,7 +13,8 @@ python chessgraph.py  --depth=10 --alpha=-20 --beta=0 --position="r1bqkbnr/pppp1
 dot -Tsvg spanish.dot -o spanish.svg
 ```
 
-The svg image contains links to the online [Chess Cloud Database](https://chessdb.cn/queryc_en/) that is queried to generate the graph.
+The [svg image](https://github.com/vondele/chessgraph/raw/main/spanish.svg) contains links
+to the online [Chess Cloud Database](https://chessdb.cn/queryc_en/) that is queried to generate the graph.
 As this database is continuously updated, generated graphs will be a snapshot of the database state at the time of creation.
 
 To use this tool [graphviz](https://graphviz.org/) must be available to convert the `.dot` file to an image format such as `.svg` or `.png`.
