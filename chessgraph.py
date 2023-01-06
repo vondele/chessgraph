@@ -245,7 +245,7 @@ class ChessGraph:
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter, description = 'An utility to create a graph of moves from a specified chess position. ')
 
     parser.add_argument(
         "--depth",
@@ -313,6 +313,14 @@ if __name__ == "__main__":
     )
 
     parser.add_argument(
+        "--output",
+        "-o",
+        type=str,
+        default="chess.dot",
+        help="Name of the output file used.",
+    )
+
+    parser.add_argument(
         "--enginedepth",
         type=int,
         default=20,
@@ -335,5 +343,6 @@ if __name__ == "__main__":
     dotstr = chessgraph.generate_graph(args.position, args.alpha, args.beta)
 
     # write it
-    for line in dotstr:
-        print(line)
+    with open(args.output, "w", encoding="utf8") as f:
+        for line in dotstr:
+            f.write(line + "\n")

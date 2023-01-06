@@ -10,7 +10,7 @@ This image was generated using:
 
 ```bash
 python chessgraph.py  --depth=6 --alpha=-60 --beta=-15 --position="r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3"\
-                           --concurrency 32 --source engine --engine stockfish --enginedepth 22 --boardstyle svg > chess.dot
+                           --concurrency 32 --source engine --engine stockfish --enginedepth 22 --boardstyle svg
 dot -Tsvg chess.dot -o chess.svg
 firefox chess.svg
 
@@ -21,7 +21,7 @@ firefox chess.svg
 This image was generated using:
 
 ```bash
-python chessgraph.py  --depth=10 --alpha=-20 --beta=0 --position="r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3" > spanish.dot
+python chessgraph.py  --depth=10 --alpha=-20 --beta=0 --position="r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3" --output spanish.dot
 dot -Tsvg spanish.dot -o spanish.svg
 ```
 
@@ -45,23 +45,28 @@ more options are available to visualize a tree. For example, allowing a local ch
 
 ```
 usage: chessgraph.py [-h] [--depth DEPTH] [--alpha ALPHA] [--beta BETA] [--concurrency CONCURRENCY] [--position POSITION] [--source {chessdb,engine}] [--boardstyle {unicode,svg,none}]
-                     [--boardedges BOARDEDGES] [--engine ENGINE] [--enginedepth ENGINEDEPTH]
+                     [--boardedges BOARDEDGES] [--engine ENGINE] [--output OUTPUT] [--enginedepth ENGINEDEPTH]
+
+An utility to create a graph of moves from a specified chess position.
 
 options:
   -h, --help            show this help message and exit
-  --depth DEPTH         Maximum depth (in plies) of a followed variation
-  --alpha ALPHA         Lower bound on the score of variations to be followed
-  --beta BETA           Upper bound on the score of variations to be followed
+  --depth DEPTH         Maximum depth (in plies) of a followed variation (default: 6)
+  --alpha ALPHA         Lower bound on the score of variations to be followed (default: 0)
+  --beta BETA           Upper bound on the score of variations to be followed (default: 15)
   --concurrency CONCURRENCY
-                        Number of cores to use for work / requests.
-  --position POSITION   FEN of the starting position.
+                        Number of cores to use for work / requests. (default: 32)
+  --position POSITION   FEN of the starting position. (default: rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1)
   --source {chessdb,engine}
-                        Use chessdb or engine to score and rank moves
+                        Use chessdb or engine to score and rank moves (default: chessdb)
   --boardstyle {unicode,svg,none}
-                        Which style to use to visualize a board.
+                        Which style to use to visualize a board. (default: unicode)
   --boardedges BOARDEDGES
-                        Minimum number of edges needed before a board is visualized in the node.
-  --engine ENGINE       Name of the engine binary (with path as needed).
+                        Minimum number of edges needed before a board is visualized in the node. (default: 3)
+  --engine ENGINE       Name of the engine binary (with path as needed). (default: stockfish)
+  --output OUTPUT, -o OUTPUT
+                        Name of the output file used. (default: chess.dot)
   --enginedepth ENGINEDEPTH
-                        Depth of the search used by the engine in evaluation
+                        Depth of the search used by the engine in evaluation (default: 20)
+
 ```
