@@ -126,7 +126,11 @@ class ChessGraph:
                 )
                 label = 'label="", image="' + filename + '"'
         else:
-            label = 'label="' + str(score) + '"'
+            if board.turn == chess.WHITE:
+               displayedScore = score
+            else:
+               displayedScore = -score
+            label = 'label="' + str(displayedScore) + '"'
 
         return '"' + epd + '" [' + label + color + url + width + "]"
 
@@ -252,8 +256,14 @@ class ChessGraph:
         # set initial board
         board = chess.Board(epd)
 
+        if board.turn == chess.WHITE:
+           initialAlpha, initialBeta = alpha, beta
+        else:
+           initialAlpha, initialBeta = -beta, -alpha
+          
+
         dotstr = ["digraph {"]
-        dotstr += self.recurse(board, self.depth, alpha, beta, pvNode=True)
+        dotstr += self.recurse(board, self.depth, initialAlpha, initialBeta, pvNode=True)
         dotstr.append(self.write_node(board, 0, True, True))
         dotstr.append("}")
 
@@ -277,14 +287,14 @@ if __name__ == "__main__":
         "--alpha",
         type=int,
         default=0,
-        help="Lower bound on the score of variations to be followed",
+        help="Lower bound on the score of variations to be followed (for white)",
     )
 
     parser.add_argument(
         "--beta",
         type=int,
         default=15,
-        help="Upper bound on the score of variations to be followed",
+        help="Lower bound on the score of variations to be followed (for black)",
     )
 
     parser.add_argument(
