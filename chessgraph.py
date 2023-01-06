@@ -16,7 +16,7 @@ from urllib import parse
 
 class ChessGraph:
     def __init__(
-        self, depth, concurrency, source, engine, enginedepth, boardstyle, boardedges
+        self, depth, concurrency, source, engine, enginedepth, maxmoves, boardstyle, boardedges
     ):
         self.visited = set()
         self.depth = depth
@@ -31,6 +31,7 @@ class ChessGraph:
         self.source = source
         self.engine = engine
         self.enginedepth = enginedepth
+        self.enginemaxmoves = maxmoves
         self.boardstyle = boardstyle
         self.boardedges = boardedges
         self.graph = graphviz.Digraph("ChessGraph", format="svg")
@@ -329,6 +330,13 @@ if __name__ == "__main__":
     )
 
     parser.add_argument(
+        "--enginemaxmoves",
+        type=int,
+        default=10,
+        help="Maximum number of moves (MultiPV) considered by the engine in evaluation",
+    )
+
+    parser.add_argument(
         "--output",
         "-o",
         type=str,
@@ -351,6 +359,7 @@ if __name__ == "__main__":
         args.source,
         args.engine,
         args.enginedepth,
+        args.enginemaxmoves,
         args.boardstyle,
         args.boardedges,
     )

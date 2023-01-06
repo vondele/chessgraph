@@ -32,9 +32,8 @@ The best variation (principal variation, PV) is shown with a thick solid line.
 More options are available to visualize a tree. For example, allowing a local chess engine for analysis, changing the depth, or using images for the boards. The shape of the tree (and the cost of generating it), is strongly affected by the alpha, beta, and depth parameters. Start at low depth, and narrow [alpha, beta] range.
 
 ```
-usage: chessgraph.py [-h] [--depth DEPTH] [--alpha ALPHA] [--beta BETA] [--concurrency CONCURRENCY] [--position POSITION]
-                     [--source {chessdb,engine}] [--boardstyle {unicode,svg,none}] [--boardedges BOARDEDGES] [--engine ENGINE] [--output OUTPUT]
-                     [--enginedepth ENGINEDEPTH]
+usage: chessgraph.py [-h] [--depth DEPTH] [--alpha ALPHA] [--beta BETA] [--concurrency CONCURRENCY] [--position POSITION] [--source {chessdb,engine}] [--boardstyle {unicode,svg,none}]
+                     [--boardedges BOARDEDGES] [--engine ENGINE] [--enginedepth ENGINEDEPTH] [--enginemaxmoves ENGINEMAXMOVES] [--output OUTPUT] [--embed | --no-embed]
 
 An utility to create a graph of moves from a specified chess position.
 
@@ -53,8 +52,12 @@ options:
   --boardedges BOARDEDGES
                         Minimum number of edges needed before a board is visualized in the node. (default: 3)
   --engine ENGINE       Name of the engine binary (with path as needed). (default: stockfish)
-  --output OUTPUT, -o OUTPUT
-                        Name of the output file (image in .svg format). (default: chess.svg)
   --enginedepth ENGINEDEPTH
                         Depth of the search used by the engine in evaluation (default: 20)
+  --enginemaxmoves ENGINEMAXMOVES
+                        Maximum number of moves (MultiPV) considered by the engine in evaluation (default: 10)
+  --output OUTPUT, -o OUTPUT
+                        Name of the output file (image in .svg format). (default: chess.svg)
+  --embed, --no-embed   If the individual svg boards should be embedded in the final .svg image. Unfortunately URLs are not preserved. (default: False)
+
 ```
