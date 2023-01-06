@@ -190,7 +190,7 @@ class ChessGraph:
 
             score = int(m["score"])
 
-            if bestscore == None:
+            if bestscore is None:
                 bestscore = score
 
             if score <= alpha:
