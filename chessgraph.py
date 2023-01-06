@@ -120,14 +120,17 @@ class ChessGraph:
                 filename = (
                     "node-" + hashlib.sha256(epd.encode("utf-8")).hexdigest() + ".svg"
                 )
-                cairosvg.svg2svg(bytestring=chess.svg.board(board, size="200px").encode('utf-8'), write_to=filename)
+                cairosvg.svg2svg(
+                    bytestring=chess.svg.board(board, size="200px").encode("utf-8"),
+                    write_to=filename,
+                )
                 label = 'label="", image="' + filename + '"'
         else:
             label = 'label="' + str(score) + '"'
 
         return '"' + epd + '" [' + label + color + url + width + "]"
 
-    def write_edge(self, epdfrom, epdto, move, turn, pvEdge):
+    def write_edge(self, epdfrom, epdto, move, turn, pvEdge, lateEdge):
 
         if turn == chess.WHITE:
             color = ", color=gold"
@@ -139,6 +142,11 @@ class ChessGraph:
         else:
             width = ', penwidth=1, fontname="Helvectica"'
 
+        if lateEdge:
+            style = ", style=dashed"
+        else:
+            style = ", style=solid"
+
         return (
             '"'
             + epdfrom
@@ -149,6 +157,7 @@ class ChessGraph:
             + '"'
             + color
             + width
+            + style
             + "]"
         )
 
@@ -164,14 +173,14 @@ class ChessGraph:
             self.visited.add(epdfrom)
 
         if board.is_checkmate():
-           moves = []
-           bestscore = -30000
+            moves = []
+            bestscore = -30000
         elif board.is_stalemate():
-           moves = []
-           bestscore = 0
+            moves = []
+            bestscore = 0
         else:
-           moves = self.executorwork.submit(self.get_moves, epdfrom).result()
-           bestscore = None
+            moves = self.executorwork.submit(self.get_moves, epdfrom).result()
+            bestscore = None
 
         edgesfound = 0
         edgesdrawn = 0
@@ -197,6 +206,7 @@ class ChessGraph:
             epdto = board.epd()
             edgesfound += 1
             pvEdge = pvNode and score == bestscore
+            lateEdge = score != bestscore
 
             # no loops, otherwise recurse
             if score == bestscore:
@@ -217,7 +227,9 @@ class ChessGraph:
                         )
                     )
                 edgesdrawn += 1
-                returnstr.append(self.write_edge(epdfrom, epdto, sanmove, turn, pvEdge))
+                returnstr.append(
+                    self.write_edge(epdfrom, epdto, sanmove, turn, pvEdge, lateEdge)
+                )
 
             board.pop()
 
@@ -249,7 +261,10 @@ class ChessGraph:
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter, description = 'An utility to create a graph of moves from a specified chess position. ')
+    parser = argparse.ArgumentParser(
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter,
+        description="An utility to create a graph of moves from a specified chess position. ",
+    )
 
     parser.add_argument(
         "--depth",
