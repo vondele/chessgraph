@@ -163,13 +163,21 @@ class ChessGraph:
         else:
             self.visited.add(epdfrom)
 
-        turn = board.turn
-        moves = self.executorwork.submit(self.get_moves, epdfrom).result()
-        bestscore = None
+        if board.is_checkmate():
+           moves = []
+           bestscore = -30000
+        elif board.is_stalemate():
+           moves = []
+           bestscore = 0
+        else:
+           moves = self.executorwork.submit(self.get_moves, epdfrom).result()
+           bestscore = None
+
         edgesfound = 0
         edgesdrawn = 0
         futures = []
         edges = []
+        turn = board.turn
 
         # loop through the moves that are within delta of the bestmove
         for m in sorted(moves, key=lambda item: item["score"], reverse=True):
