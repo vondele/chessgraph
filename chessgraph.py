@@ -103,7 +103,7 @@ class ChessGraph:
         penwidth = "3" if pvNode else "1"
 
         epdweb = parse.quote(epd)
-        url = "https://www.chessdb.cn/queryc_en/?" + epdweb
+        URL = "https://www.chessdb.cn/queryc_en/?" + epdweb
         image = None
 
         if showboard and not self.boardstyle == "none":
@@ -129,7 +129,7 @@ class ChessGraph:
                 shape="box",
                 color=color,
                 penwidth=penwidth,
-                url=url,
+                URL=URL,
                 image=image,
             )
         else:
@@ -140,7 +140,7 @@ class ChessGraph:
                 color=color,
                 penwidth=penwidth,
                 fontname="Courier",
-                url=url,
+                URL=URL,
             )
 
     def write_edge(self, epdfrom, epdto, move, turn, pvEdge, lateEdge):
