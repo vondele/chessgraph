@@ -161,11 +161,10 @@ class ChessGraph:
     def recurse(self, board, depth, alpha, beta, pvNode):
 
         epdfrom = board.epd()
-        returnstr = []
 
         # terminate recursion if visited
         if epdfrom in self.visited:
-            return returnstr
+            return
         else:
             self.visited.add(epdfrom)
 
@@ -212,7 +211,7 @@ class ChessGraph:
                 newDepth = depth - int(1.5 + math.log(edgesfound) / math.log(2))
 
             if newDepth > 0:
-                if not epdto in self.visited:
+                if epdto not in self.visited:
                     futures.append(
                         self.executorgraph[depth].submit(
                             self.recurse,
