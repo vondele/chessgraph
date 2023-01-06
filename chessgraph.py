@@ -2,6 +2,7 @@ import requests
 import json
 import argparse
 import chess
+import chess.engine
 import math
 import sys
 import concurrent.futures
@@ -11,7 +12,7 @@ from urllib import parse
 
 
 class ChessGraph:
-    def __init__(self, depth, concurrency):
+    def __init__(self, depth, concurrency, source, engine, enginedepth):
         self.visited = set()
         self.depth = depth
         self.executorgraph = [
@@ -22,8 +23,42 @@ class ChessGraph:
             max_workers=concurrency
         )
         self.session = requests.Session()
+        self.source = source
+        self.engine = engine
+        self.enginedepth = enginedepth
 
     def get_moves(self, epd):
+
+        if self.source == "chessdb":
+            return self.get_moves_chessdb(epd)
+        elif self.source == "engine":
+            return self.get_moves_engine(epd)
+        else:
+            assert False
+
+    def get_moves_engine(self, epd):
+
+        moves = []
+        engine = chess.engine.SimpleEngine.popen_uci(self.engine)
+        board = chess.Board(epd)
+        info = engine.analyse(
+            board,
+            chess.engine.Limit(depth=self.enginedepth),
+            multipv=10,
+            info=chess.engine.INFO_SCORE | chess.engine.INFO_PV,
+        )
+        engine.quit()
+        for i in info:
+            moves.append(
+                {
+                    "score": i["score"].pov(board.turn).score(mate_score=30000),
+                    "uci": chess.Move.uci(i["pv"][0]),
+                }
+            )
+
+        return moves
+
+    def get_moves_chessdb(self, epd):
 
         api = "http://www.chessdb.cn/cdb.php"
         url = api + "?action=queryall&board=" + parse.quote(epd) + "&json=1"
@@ -221,9 +256,31 @@ if __name__ == "__main__":
         help="FEN of the starting position.",
     )
 
+    parser.add_argument(
+        "--source",
+        choices=["chessdb", "engine"],
+        type=str,
+        default="chessdb",
+        help="Use chessdb or engine to score and rank moves",
+    )
+
+    parser.add_argument(
+        "--engine",
+        type=str,
+        default="stockfish",
+        help="Name of the engine binary (with path as needed).",
+    )
+
+    parser.add_argument(
+        "--enginedepth",
+        type=int,
+        default=20,
+        help="Depth of the search used by the engine in evaluation",
+    )
+
     args = parser.parse_args()
 
-    chessgraph = ChessGraph(args.depth, args.concurrency)
+    chessgraph = ChessGraph(args.depth, args.concurrency, args.source, args.engine, args.enginedepth)
 
     # generate the content of the dotfile
     dotstr = chessgraph.generate_graph(args.position, args.alpha, args.beta)
