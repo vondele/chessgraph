@@ -33,7 +33,7 @@ class ChessGraph:
         self.enginedepth = enginedepth
         self.boardstyle = boardstyle
         self.boardedges = boardedges
-        self.graph = graphviz.Digraph(format="svg")
+        self.graph = graphviz.Digraph("ChessGraph", format="svg")
 
     def get_moves(self, epd):
 
