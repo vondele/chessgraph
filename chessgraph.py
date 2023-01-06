@@ -125,7 +125,12 @@ class ChessGraph:
 
         if image:
             self.graph.node(
-                epd, label=label, shape="box", color=color, penwidth=penwidth, image=image
+                epd,
+                label=label,
+                shape="box",
+                color=color,
+                penwidth=penwidth,
+                image=image,
             )
         else:
             self.graph.node(
@@ -318,6 +323,13 @@ if __name__ == "__main__":
     )
 
     parser.add_argument(
+        "--enginedepth",
+        type=int,
+        default=20,
+        help="Depth of the search used by the engine in evaluation",
+    )
+
+    parser.add_argument(
         "--output",
         "-o",
         type=str,
@@ -326,10 +338,10 @@ if __name__ == "__main__":
     )
 
     parser.add_argument(
-        "--enginedepth",
-        type=int,
-        default=20,
-        help="Depth of the search used by the engine in evaluation",
+        "--embed",
+        action=argparse.BooleanOptionalAction,
+        default=False,
+        help="If the individual svg boards should be embedded in the final .svg image. Unfortunately URLs are not preserved.",
     )
 
     args = parser.parse_args()
@@ -347,11 +359,18 @@ if __name__ == "__main__":
     # generate the content of the dotfile
     chessgraph.generate_graph(args.position, args.alpha, args.beta)
 
-    if False:
-       # write the dot file
-       with open(args.output, "w", encoding="utf-8") as f:
-          f.write(chessgraph.graph.source)
+    # generate the svg image (calls graphviz under the hood)
+    svgpiped = chessgraph.graph.pipe()
 
-    svg = chessgraph.graph.pipe().decode("utf-8")
-    with open(args.output, "w", encoding="utf-8") as f:
-         f.write(svg)
+    if args.embed:
+        # this embeds the images of the boards generated.
+        # Unfortunately, does remove the URLs that link to chessdb.
+        # probably some smarter manipulation directly on the xml
+        # would also allow to shrink the image size (each board embeds pieces etc.)
+        cairosvg.svg2svg(
+            bytestring=svgpiped,
+            write_to=args.output,
+        )
+    else:
+        with open(args.output, "w", encoding="utf-8") as f:
+            f.write(svgpiped.decode("utf-8"))
