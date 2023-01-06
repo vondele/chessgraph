@@ -129,6 +129,7 @@ class ChessGraph:
                 shape="box",
                 color=color,
                 penwidth=penwidth,
+                url=url,
                 image=image,
             )
         else:
@@ -139,6 +140,7 @@ class ChessGraph:
                 color=color,
                 penwidth=penwidth,
                 fontname="Courier",
+                url=url,
             )
 
     def write_edge(self, epdfrom, epdto, move, turn, pvEdge, lateEdge):
@@ -180,7 +182,6 @@ class ChessGraph:
         edgesfound = 0
         edgesdrawn = 0
         futures = []
-        edges = []
         turn = board.turn
 
         # loop through the moves that are within delta of the bestmove
