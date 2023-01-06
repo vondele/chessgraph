@@ -9,8 +9,9 @@ An utility to create a graph of moves from a specified position.
 This image was generated using:
 
 ```bash
-python chessgraph.py  --depth=8 --alpha=30 --beta=50 --concurrency 32 --source engine --engine stockfish\
-                      --enginedepth 18 --boardstyle svg --position="r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 0 1"
+python chessgraph.py  --depth=8 --alpha=30 --beta=50 --concurrency 32 --source engine\
+         --engine stockfish --enginedepth 18 --boardstyle svg\
+         --position="r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 0 1"
 dot -Tsvg chess.dot -o chess.svg
 firefox chess.svg
 ```
