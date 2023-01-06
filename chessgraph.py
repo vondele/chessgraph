@@ -1,5 +1,4 @@
 import requests
-import json
 import argparse
 import chess
 import chess.engine
