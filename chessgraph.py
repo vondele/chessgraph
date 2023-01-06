@@ -10,6 +10,7 @@ import concurrent.futures
 import multiprocessing
 import copy
 import hashlib
+import cairosvg
 from urllib import parse
 
 
@@ -119,12 +120,7 @@ class ChessGraph:
                 filename = (
                     "node-" + hashlib.sha256(epd.encode("utf-8")).hexdigest() + ".svg"
                 )
-                # this prefix seems to be needed to enable dot to include the svg:
-                # https://stackoverflow.com/questions/49819164/graphviz-nodes-of-svg-images-do-not-get-inserted-if-output-is-svg
-                # strangely, only with the newline this works, and yet, dot appears to ignore the size attribute
-                prefix = '<?xml version="1.0" encoding="UTF-8" standalone="no"?>\n'
-                with open(filename, "w", encoding="utf-8") as f:
-                    f.write(prefix + chess.svg.board(board, size="100px"))
+                cairosvg.svg2svg(bytestring=chess.svg.board(board, size="200px").encode('utf-8'), write_to=filename)
                 label = 'label="", image="' + filename + '"'
         else:
             label = 'label="' + str(score) + '"'
