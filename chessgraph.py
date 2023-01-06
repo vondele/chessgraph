@@ -11,6 +11,7 @@ import multiprocessing
 import copy
 import hashlib
 import cairosvg
+import graphviz
 from urllib import parse
 
 
@@ -33,6 +34,7 @@ class ChessGraph:
         self.enginedepth = enginedepth
         self.boardstyle = boardstyle
         self.boardedges = boardedges
+        self.graph = graphviz.Digraph(format="svg")
 
     def get_moves(self, epd):
 
@@ -96,26 +98,18 @@ class ChessGraph:
 
     def write_node(self, board, score, showboard, pvNode):
 
-        if board.turn == chess.WHITE:
-            color = ", color=gold, shape=box"
-        else:
-            color = ", color=burlywood4, shape=box"
-
-        if pvNode:
-            width = ", penwidth=3"
-        else:
-            width = ", penwidth=1"
-
         epd = board.epd()
+
+        color = "gold" if board.turn == chess.WHITE else "burlywood4"
+        penwidth = "3" if pvNode else "1"
+
         epdweb = parse.quote(epd)
-        url = ', URL="https://www.chessdb.cn/queryc_en/?' + epdweb + '"'
+        url = "https://www.chessdb.cn/queryc_en/?" + epdweb
+        image = None
+
         if showboard and not self.boardstyle == "none":
             if self.boardstyle == "unicode":
-                label = (
-                    'fontname="Courier", label="'
-                    + board.unicode(empty_square="\u00B7")
-                    + '"'
-                )
+                label = board.unicode(empty_square="\u00B7")
             elif self.boardstyle == "svg":
                 filename = (
                     "node-" + hashlib.sha256(epd.encode("utf-8")).hexdigest() + ".svg"
@@ -124,45 +118,39 @@ class ChessGraph:
                     bytestring=chess.svg.board(board, size="200px").encode("utf-8"),
                     write_to=filename,
                 )
-                label = 'label="", image="' + filename + '"'
+                image = filename
+                label = ""
         else:
-            if board.turn == chess.WHITE:
-               displayedScore = score
-            else:
-               displayedScore = -score
-            label = 'label="' + str(displayedScore) + '"'
+            label = str(score if board.turn == chess.WHITE else -score)
 
-        return '"' + epd + '" [' + label + color + url + width + "]"
+        if image:
+            self.graph.node(
+                epd, label=label, shape="box", color=color, penwidth=penwidth, image=image
+            )
+        else:
+            self.graph.node(
+                epd,
+                label=label,
+                shape="box",
+                color=color,
+                penwidth=penwidth,
+                fontname="Courier",
+            )
 
     def write_edge(self, epdfrom, epdto, move, turn, pvEdge, lateEdge):
 
-        if turn == chess.WHITE:
-            color = ", color=gold"
-        else:
-            color = ", color=burlywood4"
-
-        if pvEdge:
-            width = ', penwidth=3, fontname="Helvetica-bold"'
-        else:
-            width = ', penwidth=1, fontname="Helvectica"'
-
-        if lateEdge:
-            style = ", style=dashed"
-        else:
-            style = ", style=solid"
-
-        return (
-            '"'
-            + epdfrom
-            + '" -> "'
-            + epdto
-            + '" [label="'
-            + move
-            + '"'
-            + color
-            + width
-            + style
-            + "]"
+        color = "gold" if turn == chess.WHITE else "burlywood4"
+        penwidth = "3" if pvEdge else "1"
+        fontname = "Helvetica-bold" if pvEdge else "Helvectica"
+        style = "dashed" if lateEdge else "solid"
+        self.graph.edge(
+            epdfrom,
+            epdto,
+            label=move,
+            color=color,
+            penwidth=penwidth,
+            fontname=fontname,
+            style=style,
         )
 
     def recurse(self, board, depth, alpha, beta, pvNode):
@@ -231,25 +219,18 @@ class ChessGraph:
                         )
                     )
                 edgesdrawn += 1
-                returnstr.append(
-                    self.write_edge(epdfrom, epdto, sanmove, turn, pvEdge, lateEdge)
-                )
+                self.write_edge(epdfrom, epdto, sanmove, turn, pvEdge, lateEdge)
 
             board.pop()
 
-        for f in futures:
-            returnstr += f.result()
+        concurrent.futures.wait(futures)
 
-        returnstr.append(
-            self.write_node(
-                board,
-                bestscore,
-                edgesdrawn >= self.boardedges or (pvNode and edgesdrawn == 0),
-                pvNode,
-            )
+        self.write_node(
+            board,
+            bestscore,
+            edgesdrawn >= self.boardedges or (pvNode and edgesdrawn == 0),
+            pvNode,
         )
-
-        return returnstr
 
     def generate_graph(self, epd, alpha, beta):
 
@@ -257,17 +238,12 @@ class ChessGraph:
         board = chess.Board(epd)
 
         if board.turn == chess.WHITE:
-           initialAlpha, initialBeta = alpha, beta
+            initialAlpha, initialBeta = alpha, beta
         else:
-           initialAlpha, initialBeta = -beta, -alpha
-          
+            initialAlpha, initialBeta = -beta, -alpha
 
-        dotstr = ["digraph {"]
-        dotstr += self.recurse(board, self.depth, initialAlpha, initialBeta, pvNode=True)
-        dotstr.append(self.write_node(board, 0, True, True))
-        dotstr.append("}")
-
-        return dotstr
+        self.recurse(board, self.depth, initialAlpha, initialBeta, pvNode=True)
+        self.write_node(board, 0, True, True)
 
 
 if __name__ == "__main__":
@@ -345,8 +321,8 @@ if __name__ == "__main__":
         "--output",
         "-o",
         type=str,
-        default="chess.dot",
-        help="Name of the output file used.",
+        default="chess.svg",
+        help="Name of the output file (image in .svg format).",
     )
 
     parser.add_argument(
@@ -369,9 +345,13 @@ if __name__ == "__main__":
     )
 
     # generate the content of the dotfile
-    dotstr = chessgraph.generate_graph(args.position, args.alpha, args.beta)
+    chessgraph.generate_graph(args.position, args.alpha, args.beta)
 
-    # write it
-    with open(args.output, "w", encoding="utf8") as f:
-        for line in dotstr:
-            f.write(line + "\n")
+    if False:
+       # write the dot file
+       with open(args.output, "w", encoding="utf-8") as f:
+          f.write(chessgraph.graph.source)
+
+    svg = chessgraph.graph.pipe().decode("utf-8")
+    with open(args.output, "w", encoding="utf-8") as f:
+         f.write(svg)

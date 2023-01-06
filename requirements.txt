@@ -1,0 +1,4 @@
+graphviz
+cairosvg
+requests
+chess
