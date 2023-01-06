@@ -3,16 +3,20 @@ import json
 import argparse
 import chess
 import chess.engine
+import chess.svg
 import math
 import sys
 import concurrent.futures
 import multiprocessing
 import copy
+import hashlib
 from urllib import parse
 
 
 class ChessGraph:
-    def __init__(self, depth, concurrency, source, engine, enginedepth):
+    def __init__(
+        self, depth, concurrency, source, engine, enginedepth, boardstyle, boardedges
+    ):
         self.visited = set()
         self.depth = depth
         self.executorgraph = [
@@ -26,6 +30,8 @@ class ChessGraph:
         self.source = source
         self.engine = engine
         self.enginedepth = enginedepth
+        self.boardstyle = boardstyle
+        self.boardedges = boardedges
 
     def get_moves(self, epd):
 
@@ -100,13 +106,26 @@ class ChessGraph:
             width = ", penwidth=1"
 
         epd = board.epd()
-        url = ', URL="https://www.chessdb.cn/queryc_en/?' + parse.quote(epd) + '"'
-        if showboard:
-            label = (
-                'fontname="Courier", label="'
-                + board.unicode(empty_square="\u00B7")
-                + '"'
-            )
+        epdweb = parse.quote(epd)
+        url = ', URL="https://www.chessdb.cn/queryc_en/?' + epdweb + '"'
+        if showboard and not self.boardstyle == "none":
+            if self.boardstyle == "unicode":
+                label = (
+                    'fontname="Courier", label="'
+                    + board.unicode(empty_square="\u00B7")
+                    + '"'
+                )
+            elif self.boardstyle == "svg":
+                filename = (
+                    "node-" + hashlib.sha256(epd.encode("utf-8")).hexdigest() + ".svg"
+                )
+                # this prefix seems to be needed to enable dot to include the svg:
+                # https://stackoverflow.com/questions/49819164/graphviz-nodes-of-svg-images-do-not-get-inserted-if-output-is-svg
+                # strangely, only with the newline this works, and yet, dot appears to ignore the size attribute
+                prefix = '<?xml version="1.0" encoding="UTF-8" standalone="no"?>\n'
+                with open(filename, "w", encoding="utf-8") as f:
+                    f.write(prefix + chess.svg.board(board, size="100px"))
+                label = 'label="", image="' + filename + '"'
         else:
             label = 'label="' + str(score) + '"'
 
@@ -201,7 +220,14 @@ class ChessGraph:
         for f in futures:
             returnstr += f.result()
 
-        returnstr.append(self.write_node(board, bestscore, edgesdrawn > 2, pvNode))
+        returnstr.append(
+            self.write_node(
+                board,
+                bestscore,
+                edgesdrawn >= self.boardedges or (pvNode and edgesdrawn == 0),
+                pvNode,
+            )
+        )
 
         return returnstr
 
@@ -265,6 +291,21 @@ if __name__ == "__main__":
     )
 
     parser.add_argument(
+        "--boardstyle",
+        choices=["unicode", "svg", "none"],
+        type=str,
+        default="unicode",
+        help="Which style to use to visualize a board.",
+    )
+
+    parser.add_argument(
+        "--boardedges",
+        type=int,
+        default=3,
+        help="Minimum number of edges needed before a board is visualized in the node.",
+    )
+
+    parser.add_argument(
         "--engine",
         type=str,
         default="stockfish",
@@ -280,7 +321,15 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    chessgraph = ChessGraph(args.depth, args.concurrency, args.source, args.engine, args.enginedepth)
+    chessgraph = ChessGraph(
+        args.depth,
+        args.concurrency,
+        args.source,
+        args.engine,
+        args.enginedepth,
+        args.boardstyle,
+        args.boardedges,
+    )
 
     # generate the content of the dotfile
     dotstr = chessgraph.generate_graph(args.position, args.alpha, args.beta)

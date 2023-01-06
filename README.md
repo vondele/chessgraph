@@ -2,7 +2,7 @@
 
 An utility to create a graph of moves from a specified position.
 
-For example:
+## examples
 
 ![Spanish](spanish.svg)
 
@@ -14,10 +14,11 @@ dot -Tsvg spanish.dot -o spanish.svg
 ```
 
 The [svg image](https://github.com/vondele/chessgraph/raw/main/spanish.svg) contains links
-to the online [Chess Cloud Database](https://chessdb.cn/queryc_en/) that is queried to generate the graph.
-As this database is continuously updated, generated graphs will be a snapshot of the database state at the time of creation.
+to the online [Chess Cloud Database](https://chessdb.cn/queryc_en/) that is queried to generate the graph. 
+Use a browser to visualize the image.
 
-To use this tool [graphviz](https://graphviz.org/) must be available to convert the `.dot` file to an image format such as `.svg` or `.png`.
+The chessgraph tool is based on [graphviz](https://graphviz.org/), which must be available to convert the `.dot` file to an image format such as `.svg` or `.png`.
+
 Whereas the former can have embedded links to latter might be more convient to share and modify. Generate a high-resolution version as:
 
 ```bash
@@ -25,3 +26,30 @@ dot -Tpng -Gdpi=300 spanish.dot -o spanish.png
 ```
 
 ![Spanish](spanish.png)
+
+## more options
+
+more options are available to visualize a tree. For example, allowing a local chess engine for analysis, changing the depth, or using images for the boards. The shape of the tree (and the cost of generating it), is strongly affected by the alpha, beta, and depth parameters. Start at low depth, and narrow [alpha, beta] range.
+
+```
+usage: chessgraph.py [-h] [--depth DEPTH] [--alpha ALPHA] [--beta BETA] [--concurrency CONCURRENCY] [--position POSITION] [--source {chessdb,engine}] [--boardstyle {unicode,svg,none}]
+                     [--boardedges BOARDEDGES] [--engine ENGINE] [--enginedepth ENGINEDEPTH]
+
+options:
+  -h, --help            show this help message and exit
+  --depth DEPTH         Maximum depth (in plies) of a followed variation
+  --alpha ALPHA         Lower bound on the score of variations to be followed
+  --beta BETA           Upper bound on the score of variations to be followed
+  --concurrency CONCURRENCY
+                        Number of cores to use for work / requests.
+  --position POSITION   FEN of the starting position.
+  --source {chessdb,engine}
+                        Use chessdb or engine to score and rank moves
+  --boardstyle {unicode,svg,none}
+                        Which style to use to visualize a board.
+  --boardedges BOARDEDGES
+                        Minimum number of edges needed before a board is visualized in the node.
+  --engine ENGINE       Name of the engine binary (with path as needed).
+  --enginedepth ENGINEDEPTH
+                        Depth of the search used by the engine in evaluation
+```
