@@ -211,7 +211,7 @@ class ChessGraph:
             else:
                 newDepth = depth - int(1.5 + math.log(edgesfound) / math.log(2))
 
-            if newDepth > 0:
+            if newDepth >= 0:
                 if epdto not in self.visited:
                     futures.append(
                         self.executorgraph[depth].submit(
