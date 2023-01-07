@@ -177,7 +177,7 @@ class ChessGraph:
             style=style,
         )
 
-    def recurse(self, board, depth, alpha, beta, pvNode):
+    def recurse(self, board, depth, alpha, beta, pvNode, plyFromRoot):
 
         epdfrom = board.epd()
 
@@ -238,6 +238,7 @@ class ChessGraph:
                             -beta,
                             -alpha,
                             pvEdge,
+                            plyFromRoot + 1,
                         )
                     )
                 edgesdrawn += 1
@@ -252,7 +253,9 @@ class ChessGraph:
         self.write_node(
             board,
             bestscore,
-            edgesdrawn >= self.boardedges or (pvNode and edgesdrawn == 0),
+            edgesdrawn >= self.boardedges
+            or (pvNode and edgesdrawn == 0)
+            or plyFromRoot == 0,
             pvNode,
         )
 
@@ -266,8 +269,9 @@ class ChessGraph:
         else:
             initialAlpha, initialBeta = -beta, -alpha
 
-        self.recurse(board, self.depth, initialAlpha, initialBeta, pvNode=True)
-        self.write_node(board, 0, True, True)
+        self.recurse(
+            board, self.depth, initialAlpha, initialBeta, pvNode=True, plyFromRoot=0
+        )
 
 
 if __name__ == "__main__":
