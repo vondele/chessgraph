@@ -153,19 +153,27 @@ class ChessGraph:
                 URL=URL,
             )
 
-    def write_edge(self, epdfrom, epdto, move, turn, pvEdge, lateEdge):
+    def write_edge(
+        self, epdfrom, epdto, sanmove, ucimove, turn, score, pvEdge, lateEdge
+    ):
 
         color = "gold" if turn == chess.WHITE else "burlywood4"
         penwidth = "3" if pvEdge else "1"
         fontname = "Helvetica-bold" if pvEdge else "Helvectica"
         style = "dashed" if lateEdge else "solid"
+        labeltooltip = "{} ({}) : {}".format(
+            sanmove, ucimove, str(score if turn == chess.WHITE else -score)
+        )
+        tooltip = labeltooltip
         self.graph.edge(
             epdfrom,
             epdto,
-            label=move,
+            label=sanmove,
             color=color,
             penwidth=penwidth,
             fontname=fontname,
+            tooltip=tooltip,
+            labeltooltip=labeltooltip,
             style=style,
         )
 
@@ -233,7 +241,9 @@ class ChessGraph:
                         )
                     )
                 edgesdrawn += 1
-                self.write_edge(epdfrom, epdto, sanmove, turn, pvEdge, lateEdge)
+                self.write_edge(
+                    epdfrom, epdto, sanmove, ucimove, turn, score, pvEdge, lateEdge
+                )
 
             board.pop()
 
