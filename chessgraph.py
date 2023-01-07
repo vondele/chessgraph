@@ -1,4 +1,5 @@
 import requests
+import pickle
 import platform
 import argparse
 import chess
@@ -12,6 +13,7 @@ import copy
 import hashlib
 import cairosvg
 import graphviz
+from os.path import exists
 from urllib import parse
 
 
@@ -44,6 +46,20 @@ class ChessGraph:
         self.boardstyle = boardstyle
         self.boardedges = boardedges
         self.graph = graphviz.Digraph("ChessGraph", format="svg")
+        self.cache = {}
+
+    def load_cache(self):
+
+        try:
+            with open("chessgraph.cache.pyc", "rb") as f:
+                self.cache = pickle.load(f)
+        except:
+            self.cache = {}
+
+    def store_cache(self):
+
+        with open("chessgraph.cache.pyc", "wb") as f:
+            pickle.dump(self.cache, f)
 
     def get_moves(self, epd):
 
@@ -55,6 +71,11 @@ class ChessGraph:
             assert False
 
     def get_moves_engine(self, epd):
+
+        key = (epd, self.engine, self.enginedepth, self.enginemaxmoves)
+
+        if key in self.cache:
+            return self.cache[key]
 
         moves = []
         engine = chess.engine.SimpleEngine.popen_uci(self.engine)
@@ -74,16 +95,24 @@ class ChessGraph:
                 }
             )
 
+        self.cache[key] = moves
+
         return moves
 
     def get_moves_chessdb(self, epd):
+
+        key = (epd, "chessdb")
+
+        if key in self.cache:
+            stdmoves = self.cache[key]
+            if len(stdmove) > 0:
+                return self.cache[key]
 
         api = "http://www.chessdb.cn/cdb.php"
         url = api + "?action=queryall&board=" + parse.quote(epd) + "&json=1"
         timeout = 3
 
         moves = []
-
         try:
             response = self.session.get(url, timeout=timeout)
             response.raise_for_status()
@@ -102,6 +131,8 @@ class ChessGraph:
         stdmoves = []
         for m in moves:
             stdmoves.append({"score": m["score"], "uci": m["uci"]})
+
+        self.cache[key] = stdmoves
 
         return stdmoves
 
@@ -123,10 +154,11 @@ class ChessGraph:
                 filename = (
                     "node-" + hashlib.sha256(epd.encode("utf-8")).hexdigest() + ".svg"
                 )
-                cairosvg.svg2svg(
-                    bytestring=chess.svg.board(board, size="200px").encode("utf-8"),
-                    write_to=filename,
-                )
+                if not exists(filename):
+                    cairosvg.svg2svg(
+                        bytestring=chess.svg.board(board, size="200px").encode("utf-8"),
+                        write_to=filename,
+                    )
                 image = filename
                 label = ""
         else:
@@ -394,6 +426,13 @@ if __name__ == "__main__":
         help="If the individual svg boards should be embedded in the final .svg image. Unfortunately URLs are not preserved.",
     )
 
+    parser.add_argument(
+        "--purgecache",
+        action=argparse.BooleanOptionalAction,
+        default=False,
+        help="Do no use, and later overwrite, the cache file stored on disk (chessgraph.cache.pyc).",
+    )
+
     args = parser.parse_args()
 
     chessgraph = ChessGraph(
@@ -407,8 +446,15 @@ if __name__ == "__main__":
         args.boardedges,
     )
 
+    # load previously computed nodes in a cache
+    if not args.purgecache:
+        chessgraph.load_cache()
+
     # generate the content of the dotfile
     chessgraph.generate_graph(args.position, args.alpha, args.beta)
+
+    # store updated cache
+    chessgraph.store_cache()
 
     # generate the svg image (calls graphviz under the hood)
     svgpiped = chessgraph.graph.pipe()
