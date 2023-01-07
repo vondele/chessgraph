@@ -53,7 +53,7 @@ class ChessGraph:
         info = engine.analyse(
             board,
             chess.engine.Limit(depth=self.enginedepth),
-            multipv=10,
+            multipv=self.enginemaxmoves,
             info=chess.engine.INFO_SCORE | chess.engine.INFO_PV,
         )
         engine.quit()
