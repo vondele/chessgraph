@@ -105,7 +105,7 @@ class ChessGraph:
 
         return stdmoves
 
-    def write_node(self, board, score, showboard, pvNode):
+    def write_node(self, board, score, showboard, pvNode, tooltip):
 
         epd = board.epd()
 
@@ -141,6 +141,7 @@ class ChessGraph:
                 penwidth=penwidth,
                 URL=URL,
                 image=image,
+                tooltip=tooltip,
             )
         else:
             self.graph.node(
@@ -151,6 +152,7 @@ class ChessGraph:
                 penwidth=penwidth,
                 fontname="Courier",
                 URL=URL,
+                tooltip=tooltip,
             )
 
     def write_edge(
@@ -201,6 +203,7 @@ class ChessGraph:
         edgesdrawn = 0
         futures = []
         turn = board.turn
+        tooltip = epdfrom+'\n'
 
         # loop through the moves that are within delta of the bestmove
         for m in sorted(moves, key=lambda item: item["score"], reverse=True):
@@ -242,6 +245,7 @@ class ChessGraph:
                         )
                     )
                 edgesdrawn += 1
+                tooltip += "{} : {}\n".format(sanmove, str(score if turn == chess.WHITE else -score))
                 self.write_edge(
                     epdfrom, epdto, sanmove, ucimove, turn, score, pvEdge, lateEdge
                 )
@@ -250,6 +254,12 @@ class ChessGraph:
 
         concurrent.futures.wait(futures)
 
+        remainingMoves = len(moves) - edgesdrawn
+        tooltip += "{} remaining {}\n".format(remainingMoves, "move" if remainingMoves == 1 else "moves")
+
+        if edgesdrawn == 0:
+           tooltip += "terminal: {}".format(str(bestscore if turn == chess.WHITE else -bestscore))
+
         self.write_node(
             board,
             bestscore,
@@ -257,6 +267,7 @@ class ChessGraph:
             or (pvNode and edgesdrawn == 0)
             or plyFromRoot == 0,
             pvNode,
+            tooltip,
         )
 
     def generate_graph(self, epd, alpha, beta):
