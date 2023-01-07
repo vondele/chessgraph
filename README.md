@@ -16,7 +16,8 @@ firefox chess.svg
 ```
 
 The [svg image](https://github.com/vondele/chessgraph/raw/main/spanish.svg), (this time generated with unicode chess pieces) 
-contains links to the online [Chess Cloud Database](https://chessdb.cn/queryc_en/) that can be queried to generate the graph. 
+contains tooltips and links to the online [Chess Cloud Database](https://chessdb.cn/queryc_en/) 
+that can be queried to generate the graph. 
 
 ## interpretation of the graph
 
