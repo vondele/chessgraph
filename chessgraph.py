@@ -1,4 +1,5 @@
 import requests
+import platform
 import argparse
 import chess
 import chess.engine
@@ -16,7 +17,15 @@ from urllib import parse
 
 class ChessGraph:
     def __init__(
-        self, depth, concurrency, source, engine, enginedepth, maxmoves, boardstyle, boardedges
+        self,
+        depth,
+        concurrency,
+        source,
+        engine,
+        enginedepth,
+        maxmoves,
+        boardstyle,
+        boardedges,
     ):
         self.visited = set()
         self.depth = depth
@@ -318,7 +327,9 @@ if __name__ == "__main__":
     parser.add_argument(
         "--engine",
         type=str,
-        default="stockfish",
+        default="stockfish.exe"
+        if "windows" in platform.system().lower()
+        else "stockfish",
         help="Name of the engine binary (with path as needed).",
     )
 
