@@ -182,6 +182,7 @@ class ChessGraph:
     def recurse(self, board, depth, alpha, beta, pvNode, plyFromRoot):
 
         epdfrom = board.epd()
+        legalMovesCount = board.legal_moves.count()
 
         # terminate recursion if visited
         if epdfrom in self.visited:
@@ -203,7 +204,7 @@ class ChessGraph:
         edgesdrawn = 0
         futures = []
         turn = board.turn
-        tooltip = epdfrom+'\n'
+        tooltip = epdfrom + "\n"
 
         # loop through the moves that are within delta of the bestmove
         for m in sorted(moves, key=lambda item: item["score"], reverse=True):
@@ -245,7 +246,9 @@ class ChessGraph:
                         )
                     )
                 edgesdrawn += 1
-                tooltip += "{} : {}\n".format(sanmove, str(score if turn == chess.WHITE else -score))
+                tooltip += "{} : {}\n".format(
+                    sanmove, str(score if turn == chess.WHITE else -score)
+                )
                 self.write_edge(
                     epdfrom, epdto, sanmove, ucimove, turn, score, pvEdge, lateEdge
                 )
@@ -254,11 +257,15 @@ class ChessGraph:
 
         concurrent.futures.wait(futures)
 
-        remainingMoves = len(moves) - edgesdrawn
-        tooltip += "{} remaining {}\n".format(remainingMoves, "move" if remainingMoves == 1 else "moves")
+        remainingMoves = legalMovesCount - edgesdrawn
+        tooltip += "{} remaining {}\n".format(
+            remainingMoves, "move" if remainingMoves == 1 else "moves"
+        )
 
         if edgesdrawn == 0:
-           tooltip += "terminal: {}".format(str(bestscore if turn == chess.WHITE else -bestscore))
+            tooltip += "terminal: {}".format(
+                str(bestscore if turn == chess.WHITE else -bestscore)
+            )
 
         self.write_node(
             board,
