@@ -23,14 +23,22 @@ class ChessGraph:
         depth,
         concurrency,
         source,
+        lichessdb,
         engine,
         enginedepth,
         maxmoves,
         boardstyle,
         boardedges,
     ):
-        self.visited = set()
         self.depth = depth
+        self.source = source
+        self.lichessdb = lichessdb
+        self.engine = engine
+        self.enginedepth = enginedepth
+        self.enginemaxmoves = maxmoves
+        self.boardstyle = boardstyle
+        self.boardedges = boardedges
+
         self.executorgraph = [
             concurrent.futures.ThreadPoolExecutor(max_workers=concurrency)
             for i in range(0, depth + 1)
@@ -38,15 +46,19 @@ class ChessGraph:
         self.executorwork = concurrent.futures.ThreadPoolExecutor(
             max_workers=concurrency
         )
+        self.visited = set()
         self.session = requests.Session()
-        self.source = source
-        self.engine = engine
-        self.enginedepth = enginedepth
-        self.enginemaxmoves = maxmoves
-        self.boardstyle = boardstyle
-        self.boardedges = boardedges
         self.graph = graphviz.Digraph("ChessGraph", format="svg")
         self.cache = {}
+
+        # We fix lichessbeta by giving the startpos a score of 0.35
+        if self.source == "lichess":
+            w, d, l, moves = self.lichess_api_call(
+                "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq -"
+            )
+            self.lichessbeta = (1 - 0.35) / math.log((w + d + l) / w - 1)
+        else:
+            self.lichessbeta = None
 
     def load_cache(self):
 
@@ -67,6 +79,8 @@ class ChessGraph:
             return self.get_moves_chessdb(epd)
         elif self.source == "engine":
             return self.get_moves_engine(epd)
+        elif self.source == "lichess":
+            return self.get_moves_lichess(epd)
         else:
             assert False
 
@@ -106,7 +120,7 @@ class ChessGraph:
         if key in self.cache:
             stdmoves = self.cache[key]
             if len(stdmoves) > 0:
-                return self.cache[key]
+                return stdmoves
 
         api = "http://www.chessdb.cn/cdb.php"
         url = api + "?action=queryall&board=" + parse.quote(epd) + "&json=1"
@@ -131,6 +145,92 @@ class ChessGraph:
         stdmoves = []
         for m in moves:
             stdmoves.append({"score": m["score"], "uci": m["uci"]})
+
+        self.cache[key] = stdmoves
+
+        return stdmoves
+
+    def lichess_wdl_to_score(self, w, d, l):
+        total = w + d + l
+
+        if w == l:
+            return 0.0
+
+        if w == total:
+            return 10000
+
+        if l == total:
+            return -10000
+
+        if w > l:
+            return min(
+                10000, int(100 - 100 * self.lichessbeta * math.log(total / w - 1))
+            )
+        else:
+            return max(
+                -10000, -int(100 - 100 * self.lichessbeta * math.log(total / l - 1))
+            )
+
+    def lichess_api_call(self, epd):
+
+        if self.lichessdb == "masters":
+            specifics = "&topGames=0"
+        else:
+            specifics = (
+                "variant=standard"
+                + "&speeds=blitz"
+                + "&ratings=2000,2200,2500"
+                + "&topGames=0&recentGames=0"
+            )
+
+        url = (
+            "https://explorer.lichess.ovh/{}?".format(self.lichessdb)
+            + specifics
+            + "&moves={}".format(self.enginemaxmoves)
+            + "&fen={}".format(parse.quote(epd))
+        )
+
+        timeout = 3
+
+        try:
+            response = self.session.get(url, timeout=timeout)
+            response.raise_for_status()
+            data = response.json()
+
+            if epd.split()[1] == "w":
+                w, d, l = int(data["white"]), int(data["draws"]), int(data["black"])
+            else:
+                l, d, w = int(data["white"]), int(data["draws"]), int(data["black"])
+            moves = data["moves"]
+        except:
+            w = d = l = 0
+            moves = []
+
+        return (w, d, l, moves)
+
+    def get_moves_lichess(self, epd):
+
+        key = (epd, "lichess", self.enginemaxmoves, self.lichessdb)
+
+        if key in self.cache:
+            stdmoves = self.cache[key]
+            if len(stdmoves) > 0:
+                return stdmoves
+
+        w, d, l, moves = self.lichess_api_call(epd)
+
+        stdmoves = []
+        for m in moves:
+            if epd.split()[1] == "w":
+                w, d, l = int(m["white"]), int(m["draws"]), int(m["black"])
+            else:
+                l, d, w = int(m["white"]), int(m["draws"]), int(m["black"])
+            total = w + d + l
+            # A parameter that ensures we have sufficient games to get a score
+            lichessmingames = 10
+            if total > lichessmingames:
+                score = self.lichess_wdl_to_score(w, d, l)
+                stdmoves.append({"score": score, "uci": m["uci"]})
 
         self.cache[key] = stdmoves
 
@@ -162,7 +262,11 @@ class ChessGraph:
                 image = filename
                 label = ""
         else:
-            label = str(score if board.turn == chess.WHITE else -score)
+            label = (
+                "None"
+                if score is None
+                else str(score if board.turn == chess.WHITE else -score)
+            )
 
         if image:
             self.graph.node(
@@ -196,7 +300,9 @@ class ChessGraph:
         fontname = "Helvetica-bold" if pvEdge else "Helvectica"
         style = "dashed" if lateEdge else "solid"
         labeltooltip = "{} ({}) : {}".format(
-            sanmove, ucimove, str(score if turn == chess.WHITE else -score)
+            sanmove,
+            ucimove,
+            "None" if score is None else str(score if turn == chess.WHITE else -score),
         )
         tooltip = labeltooltip
         self.graph.edge(
@@ -296,7 +402,9 @@ class ChessGraph:
 
         if edgesdrawn == 0:
             tooltip += "terminal: {}".format(
-                str(bestscore if turn == chess.WHITE else -bestscore)
+                "None"
+                if bestscore is None
+                else str(bestscore if turn == chess.WHITE else -bestscore)
             )
 
         self.write_node(
@@ -367,10 +475,18 @@ if __name__ == "__main__":
 
     parser.add_argument(
         "--source",
-        choices=["chessdb", "engine"],
+        choices=["chessdb", "engine", "lichess"],
         type=str,
         default="chessdb",
-        help="Use chessdb or engine to score and rank moves",
+        help="Use chessdb, lichess or an engine to score and rank moves",
+    )
+
+    parser.add_argument(
+        "--lichessdb",
+        choices=["masters", "lichess"],
+        type=str,
+        default="masters",
+        help="Which lichess database to access, masters, or lichess players",
     )
 
     parser.add_argument(
@@ -439,6 +555,7 @@ if __name__ == "__main__":
         args.depth,
         args.concurrency,
         args.source,
+        args.lichessdb,
         args.engine,
         args.enginedepth,
         args.enginemaxmoves,
