@@ -105,7 +105,7 @@ class ChessGraph:
 
         if key in self.cache:
             stdmoves = self.cache[key]
-            if len(stdmove) > 0:
+            if len(stdmoves) > 0:
                 return self.cache[key]
 
         api = "http://www.chessdb.cn/cdb.php"
