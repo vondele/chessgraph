@@ -33,8 +33,9 @@ The best variation (principal variation, PV) is shown with a thick solid line.
 More options are available to visualize a tree. For example, allowing a local chess engine for analysis, changing the depth, or using images for the boards. The shape of the tree (and the cost of generating it), is strongly affected by the alpha, beta, and depth parameters. Start at low depth, and narrow [alpha, beta] range.
 
 ```
-usage: chessgraph.py [-h] [--depth DEPTH] [--alpha ALPHA] [--beta BETA] [--concurrency CONCURRENCY] [--position POSITION] [--source {chessdb,engine}] [--boardstyle {unicode,svg,none}]
-                     [--boardedges BOARDEDGES] [--engine ENGINE] [--enginedepth ENGINEDEPTH] [--enginemaxmoves ENGINEMAXMOVES] [--output OUTPUT] [--embed | --no-embed]
+usage: chessgraph.py [-h] [--depth DEPTH] [--alpha ALPHA] [--beta BETA] [--concurrency CONCURRENCY] [--position POSITION] [--source {chessdb,engine,lichess}] [--lichessdb {masters,lichess}]
+                     [--boardstyle {unicode,svg,none}] [--boardedges BOARDEDGES] [--engine ENGINE] [--enginedepth ENGINEDEPTH] [--enginemaxmoves ENGINEMAXMOVES] [--output OUTPUT]
+                     [--embed | --no-embed] [--purgecache | --no-purgecache]
 
 An utility to create a graph of moves from a specified chess position.
 
@@ -46,8 +47,10 @@ options:
   --concurrency CONCURRENCY
                         Number of cores to use for work / requests. (default: 32)
   --position POSITION   FEN of the starting position. (default: rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1)
-  --source {chessdb,engine}
-                        Use chessdb or engine to score and rank moves (default: chessdb)
+  --source {chessdb,engine,lichess}
+                        Use chessdb, lichess or an engine to score and rank moves (default: chessdb)
+  --lichessdb {masters,lichess}
+                        Which lichess database to access, masters, or lichess players (default: masters)
   --boardstyle {unicode,svg,none}
                         Which style to use to visualize a board. (default: unicode)
   --boardedges BOARDEDGES
@@ -60,5 +63,6 @@ options:
   --output OUTPUT, -o OUTPUT
                         Name of the output file (image in .svg format). (default: chess.svg)
   --embed, --no-embed   If the individual svg boards should be embedded in the final .svg image. Unfortunately URLs are not preserved. (default: False)
-
+  --purgecache, --no-purgecache
+                        Do no use, and later overwrite, the cache file stored on disk (chessgraph.cache.pyc). (default: False)
 ```
