@@ -342,7 +342,7 @@ class ChessGraph:
         edgesdrawn = 0
         futures = []
         turn = board.turn
-        tooltip = epdfrom + "\n"
+        tooltip = epdfrom + "&#010;"
 
         # loop through the moves that are within delta of the bestmove
         for m in sorted(moves, key=lambda item: item["score"], reverse=True):
@@ -384,7 +384,7 @@ class ChessGraph:
                         )
                     )
                 edgesdrawn += 1
-                tooltip += "{} : {}\n".format(
+                tooltip += "{} : {}&#010;".format(
                     sanmove, str(score if turn == chess.WHITE else -score)
                 )
                 self.write_edge(
@@ -396,7 +396,7 @@ class ChessGraph:
         concurrent.futures.wait(futures)
 
         remainingMoves = legalMovesCount - edgesdrawn
-        tooltip += "{} remaining {}\n".format(
+        tooltip += "{} remaining {}&#010;".format(
             remainingMoves, "move" if remainingMoves == 1 else "moves"
         )
 
