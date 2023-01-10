@@ -33,14 +33,18 @@ The best variation (principal variation, PV) is shown with a thick solid line.
 More options are available to visualize a tree. For example, allowing a local chess engine for analysis, changing the depth, or using images for the boards. The shape of the tree (and the cost of generating it), is strongly affected by the alpha, beta, and depth parameters. Start at low depth, and narrow [alpha, beta] range.
 
 ```
-usage: chessgraph.py [-h] [--depth DEPTH] [--alpha ALPHA] [--beta BETA] [--concurrency CONCURRENCY] [--position POSITION] [--source {chessdb,engine,lichess}] [--lichessdb {masters,lichess}]
-                     [--boardstyle {unicode,svg,none}] [--boardedges BOARDEDGES] [--engine ENGINE] [--enginedepth ENGINEDEPTH] [--enginemaxmoves ENGINEMAXMOVES] [--output OUTPUT]
-                     [--embed | --no-embed] [--purgecache | --no-purgecache]
+usage: chessgraph.py [-h] [--networkstyle {graph,tree}] [--depth DEPTH] [--alpha ALPHA] [--beta BETA] [--concurrency CONCURRENCY] [--position POSITION]
+                     [--source {chessdb,engine,lichess}] [--lichessdb {masters,lichess}] [--boardstyle {unicode,svg,none}] [--boardedges BOARDEDGES]
+                     [--engine ENGINE] [--enginedepth ENGINEDEPTH] [--enginemaxmoves ENGINEMAXMOVES] [--output OUTPUT] [--embed | --no-embed]
+                     [--purgecache | --no-purgecache]
 
 An utility to create a graph of moves from a specified chess position.
 
 options:
   -h, --help            show this help message and exit
+  --networkstyle {graph,tree}
+                        Selects the representation of the network as a graph (shows transpositions, compact) or a tree (simpler to follow, extended).
+                        (default: graph)
   --depth DEPTH         Maximum depth (in plies) of a followed variation (default: 6)
   --alpha ALPHA         Lower bound on the score of variations to be followed (for white) (default: 0)
   --beta BETA           Lower bound on the score of variations to be followed (for black) (default: 15)
@@ -65,4 +69,5 @@ options:
   --embed, --no-embed   If the individual svg boards should be embedded in the final .svg image. Unfortunately URLs are not preserved. (default: False)
   --purgecache, --no-purgecache
                         Do no use, and later overwrite, the cache file stored on disk (chessgraph.cache.pyc). (default: False)
+
 ```

@@ -20,22 +20,24 @@ from urllib import parse
 class ChessGraph:
     def __init__(
         self,
+        networkstyle,
         depth,
         concurrency,
         source,
         lichessdb,
         engine,
         enginedepth,
-        maxmoves,
+        enginemaxmoves,
         boardstyle,
         boardedges,
     ):
+        self.networkstyle = networkstyle
         self.depth = depth
         self.source = source
         self.lichessdb = lichessdb
         self.engine = engine
         self.enginedepth = enginedepth
-        self.enginemaxmoves = maxmoves
+        self.enginemaxmoves = enginemaxmoves
         self.boardstyle = boardstyle
         self.boardedges = boardedges
 
@@ -236,9 +238,31 @@ class ChessGraph:
 
         return stdmoves
 
+    def node_name(self, board):
+
+        if self.networkstyle == "graph":
+            name = "graph - " + board.epd()
+        elif self.networkstyle == "tree":
+            movelist = []
+            while True:
+                try:
+                    move = board.pop()
+                    movelist.append(move)
+                except:
+                    break
+            name = board.epd() + " moves "
+            for move in reversed(movelist):
+                board.push(move)
+                name = name + " " + move.uci()
+        else:
+            raise ()
+
+        return name
+
     def write_node(self, board, score, showboard, pvNode, tooltip):
 
         epd = board.epd()
+        nodename = self.node_name(board)
 
         color = "gold" if board.turn == chess.WHITE else "burlywood4"
         penwidth = "3" if pvNode else "1"
@@ -270,7 +294,7 @@ class ChessGraph:
 
         if image:
             self.graph.node(
-                epd,
+                nodename,
                 label=label,
                 shape="box",
                 color=color,
@@ -281,7 +305,7 @@ class ChessGraph:
             )
         else:
             self.graph.node(
-                epd,
+                nodename,
                 label=label,
                 shape="box",
                 color=color,
@@ -292,7 +316,7 @@ class ChessGraph:
             )
 
     def write_edge(
-        self, epdfrom, epdto, sanmove, ucimove, turn, score, pvEdge, lateEdge
+        self, nodefrom, nodeto, sanmove, ucimove, turn, score, pvEdge, lateEdge
     ):
 
         color = "gold" if turn == chess.WHITE else "burlywood4"
@@ -306,8 +330,8 @@ class ChessGraph:
         )
         tooltip = labeltooltip
         self.graph.edge(
-            epdfrom,
-            epdto,
+            nodefrom,
+            nodeto,
             label=sanmove,
             color=color,
             penwidth=penwidth,
@@ -319,14 +343,15 @@ class ChessGraph:
 
     def recurse(self, board, depth, alpha, beta, pvNode, plyFromRoot):
 
-        epdfrom = board.epd()
+        nodenamefrom = self.node_name(board)
         legalMovesCount = board.legal_moves.count()
+        epd = board.epd()
 
         # terminate recursion if visited
-        if epdfrom in self.visited:
+        if nodenamefrom in self.visited:
             return
         else:
-            self.visited.add(epdfrom)
+            self.visited.add(nodenamefrom)
 
         if board.is_checkmate():
             moves = []
@@ -335,14 +360,14 @@ class ChessGraph:
             moves = []
             bestscore = 0
         else:
-            moves = self.executorwork.submit(self.get_moves, epdfrom).result()
+            moves = self.executorwork.submit(self.get_moves, epd).result()
             bestscore = None
 
         edgesfound = 0
         edgesdrawn = 0
         futures = []
         turn = board.turn
-        tooltip = epdfrom + "&#010;"
+        tooltip = epd + "&#010;"
 
         # loop through the moves that are within delta of the bestmove
         for m in sorted(moves, key=lambda item: item["score"], reverse=True):
@@ -359,7 +384,7 @@ class ChessGraph:
             move = chess.Move.from_uci(ucimove)
             sanmove = board.san(move)
             board.push(move)
-            epdto = board.epd()
+            nodenameto = self.node_name(board)
             edgesfound += 1
             pvEdge = pvNode and score == bestscore
             lateEdge = score != bestscore
@@ -371,7 +396,7 @@ class ChessGraph:
                 newDepth = depth - int(1.5 + math.log(edgesfound) / math.log(2))
 
             if newDepth >= 0:
-                if epdto not in self.visited:
+                if nodenameto not in self.visited:
                     futures.append(
                         self.executorgraph[depth].submit(
                             self.recurse,
@@ -388,7 +413,14 @@ class ChessGraph:
                     sanmove, str(score if turn == chess.WHITE else -score)
                 )
                 self.write_edge(
-                    epdfrom, epdto, sanmove, ucimove, turn, score, pvEdge, lateEdge
+                    nodenamefrom,
+                    nodenameto,
+                    sanmove,
+                    ucimove,
+                    turn,
+                    score,
+                    pvEdge,
+                    lateEdge,
                 )
 
             board.pop()
@@ -436,6 +468,14 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
         description="An utility to create a graph of moves from a specified chess position. ",
+    )
+
+    parser.add_argument(
+        "--networkstyle",
+        choices=["graph", "tree"],
+        type=str,
+        default="graph",
+        help="Selects the representation of the network as a graph (shows transpositions, compact) or a tree (simpler to follow, extended).",
     )
 
     parser.add_argument(
@@ -552,15 +592,16 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     chessgraph = ChessGraph(
-        args.depth,
-        args.concurrency,
-        args.source,
-        args.lichessdb,
-        args.engine,
-        args.enginedepth,
-        args.enginemaxmoves,
-        args.boardstyle,
-        args.boardedges,
+        networkstyle=args.networkstyle,
+        depth=args.depth,
+        concurrency=args.concurrency,
+        source=args.source,
+        lichessdb=args.lichessdb,
+        engine=args.engine,
+        enginedepth=args.enginedepth,
+        enginemaxmoves=args.enginemaxmoves,
+        boardstyle=args.boardstyle,
+        boardedges=args.boardedges,
     )
 
     # load previously computed nodes in a cache
