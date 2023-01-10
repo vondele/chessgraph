@@ -337,6 +337,7 @@ class ChessGraph:
             penwidth=penwidth,
             fontname=fontname,
             tooltip=tooltip,
+            edgetooltip=tooltip,
             labeltooltip=labeltooltip,
             style=style,
         )
