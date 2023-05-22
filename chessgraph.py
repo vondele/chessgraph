@@ -63,7 +63,6 @@ class ChessGraph:
             self.lichessbeta = None
 
     def load_cache(self):
-
         try:
             with open("chessgraph.cache.pyc", "rb") as f:
                 self.cache = pickle.load(f)
@@ -71,12 +70,10 @@ class ChessGraph:
             self.cache = {}
 
     def store_cache(self):
-
         with open("chessgraph.cache.pyc", "wb") as f:
             pickle.dump(self.cache, f)
 
     def get_moves(self, epd):
-
         if self.source == "chessdb":
             return self.get_moves_chessdb(epd)
         elif self.source == "engine":
@@ -87,7 +84,6 @@ class ChessGraph:
             assert False
 
     def get_moves_engine(self, epd):
-
         key = (epd, self.engine, self.enginedepth, self.enginemaxmoves)
 
         if key in self.cache:
@@ -116,7 +112,6 @@ class ChessGraph:
         return moves
 
     def get_moves_chessdb(self, epd):
-
         key = (epd, "chessdb")
 
         if key in self.cache:
@@ -174,7 +169,6 @@ class ChessGraph:
             )
 
     def lichess_api_call(self, epd):
-
         if self.lichessdb == "masters":
             specifics = "&topGames=0"
         else:
@@ -211,7 +205,6 @@ class ChessGraph:
         return (w, d, l, moves)
 
     def get_moves_lichess(self, epd):
-
         key = (epd, "lichess", self.enginemaxmoves, self.lichessdb)
 
         if key in self.cache:
@@ -239,7 +232,6 @@ class ChessGraph:
         return stdmoves
 
     def node_name(self, board):
-
         if self.networkstyle == "graph":
             name = "graph - " + board.epd()
         elif self.networkstyle == "tree":
@@ -260,7 +252,6 @@ class ChessGraph:
         return name
 
     def write_node(self, board, score, showboard, pvNode, tooltip):
-
         epd = board.epd()
         nodename = self.node_name(board)
 
@@ -318,7 +309,6 @@ class ChessGraph:
     def write_edge(
         self, nodefrom, nodeto, sanmove, ucimove, turn, score, pvEdge, lateEdge
     ):
-
         color = "gold" if turn == chess.WHITE else "burlywood4"
         penwidth = "3" if pvEdge else "1"
         fontname = "Helvetica-bold" if pvEdge else "Helvectica"
@@ -343,7 +333,6 @@ class ChessGraph:
         )
 
     def recurse(self, board, depth, alpha, beta, pvNode, plyFromRoot):
-
         nodenamefrom = self.node_name(board)
         legalMovesCount = board.legal_moves.count()
         epd = board.epd()
@@ -372,7 +361,6 @@ class ChessGraph:
 
         # loop through the moves that are within delta of the bestmove
         for m in sorted(moves, key=lambda item: item["score"], reverse=True):
-
             score = int(m["score"])
 
             if bestscore is None:
@@ -451,7 +439,6 @@ class ChessGraph:
         )
 
     def generate_graph(self, epd, alpha, beta):
-
         # set initial board
         board = chess.Board(epd)
 
@@ -468,7 +455,7 @@ class ChessGraph:
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
-        description="An utility to create a graph of moves from a specified chess position. ",
+        description="A utility to create a graph of moves from a specified chess position.",
     )
 
     parser.add_argument(
@@ -507,11 +494,16 @@ if __name__ == "__main__":
         help="Number of cores to use for work / requests.",
     )
 
-    parser.add_argument(
+    group = parser.add_mutually_exclusive_group()
+    group.add_argument(
         "--position",
         type=str,
-        default="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
-        help="FEN of the starting position.",
+        default=chess.STARTING_FEN,
+        help="FEN of the root position.",
+    )
+    group.add_argument(
+        "--san",
+        help='Moves in SAN notation that lead to the root position. E.g. "1. g4".',
     )
 
     parser.add_argument(
@@ -609,8 +601,19 @@ if __name__ == "__main__":
     if not args.purgecache:
         chessgraph.load_cache()
 
+    if args.san is not None:
+        import chess.pgn, io
+
+        if args.san:
+            pgn = io.StringIO(args.san)
+            fen = chess.pgn.read_game(pgn).end().board().fen()
+        else:
+            fen = chess.STARTING_FEN  # passing empty string to --san gives startpos
+    else:
+        fen = args.position
+
     # generate the content of the dotfile
-    chessgraph.generate_graph(args.position, args.alpha, args.beta)
+    chessgraph.generate_graph(fen, args.alpha, args.beta)
 
     # store updated cache
     chessgraph.store_cache()
