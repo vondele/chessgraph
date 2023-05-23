@@ -357,7 +357,11 @@ class ChessGraph:
         if board.is_checkmate():
             moves = []
             bestscore = -30000
-        elif board.is_stalemate():
+        elif (
+            board.is_stalemate()
+            or board.is_insufficient_material()
+            or board.can_claim_draw()
+        ):
             moves = []
             bestscore = 0
         else:
