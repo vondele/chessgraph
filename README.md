@@ -33,37 +33,37 @@ The best variation (principal variation, PV) is shown with a thick solid line.
 More options are available to visualize a tree. For example, allowing a local chess engine for analysis, changing the depth, or using images for the boards. The shape of the tree (and the cost of generating it), is strongly affected by the alpha, beta, and depth parameters. Start at low depth, and narrow [alpha, beta] range.
 
 ```
-usage: chessgraph.py [-h] [--networkstyle {graph,tree}] [--depth DEPTH] [--alpha ALPHA] [--beta BETA] [--concurrency CONCURRENCY]
-                     [--position POSITION | --san SAN] [--source {chessdb,engine,lichess}] [--lichessdb {masters,lichess}]
-                     [--boardstyle {unicode,svg,none}] [--boardedges BOARDEDGES] [--engine ENGINE] [--enginedepth ENGINEDEPTH]
-                     [--enginemaxmoves ENGINEMAXMOVES] [--output OUTPUT] [--embed | --no-embed] [--purgecache | --no-purgecache]
+usage: chessgraph.py [-h] [--position POSITION | --san SAN] [--depth DEPTH] [--alpha ALPHA] [--beta BETA] [--relwin] [--concurrency CONCURRENCY] [--source {chessdb,lichess,engine}]
+                     [--lichessdb {masters,lichess}] [--engine ENGINE] [--enginedepth ENGINEDEPTH] [--enginemaxmoves ENGINEMAXMOVES] [--networkstyle {graph,tree}]
+                     [--boardstyle {unicode,svg,none}] [--boardedges BOARDEDGES] [--output OUTPUT] [--embed | --no-embed] [--purgecache | --no-purgecache]
 
 A utility to create a graph of moves from a specified chess position.
 
 options:
   -h, --help            show this help message and exit
-  --networkstyle {graph,tree}
-                        Selects the representation of the network as a graph (shows transpositions, compact) or a tree (simpler to follow, extended). (default: graph)
-  --depth DEPTH         Maximum depth (in plies) of a followed variation (default: 6)
-  --alpha ALPHA         Lower bound on the score of variations to be followed (for white) (default: 0)
-  --beta BETA           Lower bound on the score of variations to be followed (for black) (default: 15)
-  --concurrency CONCURRENCY
-                        Number of cores to use for work / requests. (default: 8)
   --position POSITION   FEN of the root position. (default: rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1)
   --san SAN             Moves in SAN notation that lead to the root position. E.g. "1. g4". (default: None)
-  --source {chessdb,engine,lichess}
-                        Use chessdb, lichess or an engine to score and rank moves (default: chessdb)
+  --depth DEPTH         Maximum depth (in plies) of a followed variation. (default: 6)
+  --alpha ALPHA         Lower bound on the score of variations to be followed (for white). (default: 0)
+  --beta BETA           Lower bound on the score of variations to be followed (for black). (default: 15)
+  --relwin              Treat ALPHA and BETA as percentages to define the search window around the eval of the root position. (default: False)
+  --concurrency CONCURRENCY
+                        Number of cores to use for work / requests. (default: 8)
+  --source {chessdb,lichess,engine}
+                        Use chessdb, lichess or an engine to score and rank moves. (default: chessdb)
   --lichessdb {masters,lichess}
-                        Which lichess database to access, masters, or lichess players (default: masters)
+                        Which lichess database to access: masters, or lichess players. (default: masters)
+  --engine ENGINE       Name of the engine binary (with path as needed). (default: stockfish)
+  --enginedepth ENGINEDEPTH
+                        Depth of the search used by the engine in evaluation. (default: 20)
+  --enginemaxmoves ENGINEMAXMOVES
+                        Maximum number of moves (MultiPV) considered by the engine in evaluation. (default: 10)
+  --networkstyle {graph,tree}
+                        Selects the representation of the network as a graph (shows transpositions, compact) or a tree (simpler to follow, extended). (default: graph)
   --boardstyle {unicode,svg,none}
                         Which style to use to visualize a board. (default: unicode)
   --boardedges BOARDEDGES
                         Minimum number of edges needed before a board is visualized in the node. (default: 3)
-  --engine ENGINE       Name of the engine binary (with path as needed). (default: stockfish)
-  --enginedepth ENGINEDEPTH
-                        Depth of the search used by the engine in evaluation (default: 20)
-  --enginemaxmoves ENGINEMAXMOVES
-                        Maximum number of moves (MultiPV) considered by the engine in evaluation (default: 10)
   --output OUTPUT, -o OUTPUT
                         Name of the output file (image in .svg format). (default: chess.svg)
   --embed, --no-embed   If the individual svg boards should be embedded in the final .svg image. Unfortunately URLs are not preserved. (default: False)
