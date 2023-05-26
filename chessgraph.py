@@ -442,18 +442,22 @@ class ChessGraph:
             tooltip,
         )
 
-    def generate_graph(self, epd, alpha, beta, relativeWindow=False):
+    def generate_graph(self, epd, alpha, beta, ralpha, rbeta, salpha, sbeta):
         # set initial board
         board = chess.Board(epd)
 
         score, _ = self.get_bestscore_and_moves(board)
         score = score if board.turn == chess.WHITE else -score
 
-        if relativeWindow:
-            alpha = int(alpha * score / 100)
-            beta = int(beta * score / 100)
-            if alpha > beta:
-                alpha, beta = beta, alpha
+        if ralpha is not None:
+            alpha = int(ralpha * score)
+        elif salpha is not None:
+            alpha = score - salpha
+
+        if rbeta is not None:
+            beta = int(rbeta * score)
+        elif sbeta is not None:
+            beta = score + sbeta
 
         print("root position epd : ", epd)
         print("eval              : ", score)
@@ -495,24 +499,40 @@ if __name__ == "__main__":
         help="Maximum depth (in plies) of a followed variation.",
     )
 
-    parser.add_argument(
+    groupa = parser.add_mutually_exclusive_group()
+    groupa.add_argument(
         "--alpha",
         type=int,
         default=0,
         help="Lower bound on the score of variations to be followed (for white).",
     )
+    groupa.add_argument(
+        "--ralpha",
+        type=float,
+        help="Set ALPHA = EVAL * RALPHA , where EVAL is the eval of the root position.",
+    )
+    groupa.add_argument(
+        "--salpha",
+        type=int,
+        help="Set ALPHA = EVAL - SALPHA.",
+    )
 
-    parser.add_argument(
+    groupb = parser.add_mutually_exclusive_group()
+    groupb.add_argument(
         "--beta",
         type=int,
         default=15,
         help="Lower bound on the score of variations to be followed (for black).",
     )
-
-    parser.add_argument(
-        "--relwin",
-        action="store_true",
-        help="Treat ALPHA and BETA as percentages to define the search window around the eval of the root position.",
+    groupb.add_argument(
+        "--rbeta",
+        type=float,
+        help="Set BETA = EVAL * RBETA.",
+    )
+    groupb.add_argument(
+        "--sbeta",
+        type=int,
+        help="Set BETA = EVAL + SBETA.",
     )
 
     parser.add_argument(
@@ -637,7 +657,9 @@ if __name__ == "__main__":
         fen = args.position
 
     # generate the content of the dotfile
-    chessgraph.generate_graph(fen, args.alpha, args.beta, args.relwin)
+    chessgraph.generate_graph(
+        fen, args.alpha, args.beta, args.ralpha, args.rbeta, args.salpha, args.sbeta
+    )
 
     # store updated cache
     chessgraph.store_cache()
