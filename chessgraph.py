@@ -460,9 +460,14 @@ class ChessGraph:
             beta = score + sbeta
 
         print("root position epd : ", epd)
+        print(
+            f"alpha             :  {alpha}{'  (alpha > eval!)' if alpha > score else ''}"
+        )
         print("eval              : ", score)
-        print("alpha             : ", alpha)
-        print("beta              : ", beta)
+        print(
+            f"beta              :  {beta}{'  (beta < eval!)' if beta < score else ''}"
+        )
+        print("depth             : ", self.depth)
 
         if board.turn == chess.WHITE:
             initialAlpha, initialBeta = alpha, beta
@@ -490,13 +495,6 @@ if __name__ == "__main__":
     group.add_argument(
         "--san",
         help='Moves in SAN notation that lead to the root position. E.g. "1. g4".',
-    )
-
-    parser.add_argument(
-        "--depth",
-        type=int,
-        default=6,
-        help="Maximum depth (in plies) of a followed variation.",
     )
 
     groupa = parser.add_mutually_exclusive_group()
@@ -533,6 +531,13 @@ if __name__ == "__main__":
         "--sbeta",
         type=int,
         help="Set BETA = EVAL + SBETA.",
+    )
+
+    parser.add_argument(
+        "--depth",
+        type=int,
+        default=6,
+        help="Maximum depth (in plies) of a followed variation.",
     )
 
     parser.add_argument(

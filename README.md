@@ -33,9 +33,10 @@ The best variation (principal variation, PV) is shown with a thick solid line.
 More options are available to visualize a tree. For example, allowing a local chess engine for analysis, changing the depth, or using images for the boards. The shape of the tree (and the cost of generating it), is strongly affected by the alpha, beta, and depth parameters. Start at low depth, and narrow [alpha, beta] range.
 
 ```
-usage: chessgraph.py [-h] [--position POSITION | --san SAN] [--depth DEPTH] [--alpha ALPHA] [--beta BETA] [--relwin] [--concurrency CONCURRENCY] [--source {chessdb,lichess,engine}]
-                     [--lichessdb {masters,lichess}] [--engine ENGINE] [--enginedepth ENGINEDEPTH] [--enginemaxmoves ENGINEMAXMOVES] [--networkstyle {graph,tree}]
-                     [--boardstyle {unicode,svg,none}] [--boardedges BOARDEDGES] [--output OUTPUT] [--embed | --no-embed] [--purgecache | --no-purgecache]
+usage: chessgraph.py [-h] [--position POSITION | --san SAN] [--alpha ALPHA | --ralpha RALPHA | --salpha SALPHA] [--beta BETA | --rbeta RBETA | --sbeta SBETA] [--depth DEPTH] 
+                     [--concurrency CONCURRENCY] [--source {chessdb,lichess,engine}] [--lichessdb {masters,lichess}] [--engine ENGINE] [--enginedepth ENGINEDEPTH]
+                     [--enginemaxmoves ENGINEMAXMOVES] [--networkstyle {graph,tree}] [--boardstyle {unicode,svg,none}] [--boardedges BOARDEDGES] [--output OUTPUT] [--embed | --no-embed]
+                     [--purgecache | --no-purgecache]
 
 A utility to create a graph of moves from a specified chess position.
 
@@ -43,10 +44,13 @@ options:
   -h, --help            show this help message and exit
   --position POSITION   FEN of the root position. (default: rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1)
   --san SAN             Moves in SAN notation that lead to the root position. E.g. "1. g4". (default: None)
-  --depth DEPTH         Maximum depth (in plies) of a followed variation. (default: 6)
   --alpha ALPHA         Lower bound on the score of variations to be followed (for white). (default: 0)
+  --ralpha RALPHA       Set ALPHA = EVAL * RALPHA , where EVAL is the eval of the root position. (default: None)
+  --salpha SALPHA       Set ALPHA = EVAL - SALPHA. (default: None)
   --beta BETA           Lower bound on the score of variations to be followed (for black). (default: 15)
-  --relwin              Treat ALPHA and BETA as percentages to define the search window around the eval of the root position. (default: False)
+  --rbeta RBETA         Set BETA = EVAL * RBETA. (default: None)
+  --sbeta SBETA         Set BETA = EVAL + SBETA. (default: None)
+  --depth DEPTH         Maximum depth (in plies) of a followed variation. (default: 6)
   --concurrency CONCURRENCY
                         Number of cores to use for work / requests. (default: 8)
   --source {chessdb,lichess,engine}
