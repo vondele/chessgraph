@@ -9,7 +9,6 @@ import math
 import sys
 import concurrent.futures
 import multiprocessing
-import copy
 import hashlib
 import cairosvg
 import graphviz
@@ -82,6 +81,24 @@ class ChessGraph:
             return self.get_moves_lichess(epd)
         else:
             assert False
+
+    def get_bestscore_and_moves(self, board):
+        if board.is_checkmate():
+            moves = []
+            bestscore = -30000
+        elif (
+            board.is_stalemate()
+            or board.is_insufficient_material()
+            or board.can_claim_draw()
+        ):
+            moves = []
+            bestscore = 0
+        else:
+            moves = self.executorwork.submit(self.get_moves, board.epd()).result()
+            if self.source != "chessdb":
+                moves.sort(key=lambda item: item["score"], reverse=True)
+            bestscore = int(moves[0]["score"]) if moves else None
+        return bestscore, moves
 
     def get_moves_engine(self, epd):
         key = (epd, self.engine, self.enginedepth, self.enginemaxmoves)
@@ -334,8 +351,6 @@ class ChessGraph:
 
     def recurse(self, board, depth, alpha, beta, pvNode, plyFromRoot):
         nodenamefrom = self.node_name(board)
-        legalMovesCount = board.legal_moves.count()
-        epd = board.epd()
 
         # terminate recursion if visited
         if nodenamefrom in self.visited:
@@ -343,32 +358,17 @@ class ChessGraph:
         else:
             self.visited.add(nodenamefrom)
 
-        if board.is_checkmate():
-            moves = []
-            bestscore = -30000
-        elif (
-            board.is_stalemate()
-            or board.is_insufficient_material()
-            or board.can_claim_draw()
-        ):
-            moves = []
-            bestscore = 0
-        else:
-            moves = self.executorwork.submit(self.get_moves, epd).result()
-            bestscore = None
+        bestscore, moves = self.get_bestscore_and_moves(board)
 
         edgesfound = 0
         edgesdrawn = 0
         futures = []
         turn = board.turn
-        tooltip = epd + "&#010;"
+        tooltip = board.epd() + "&#010;"
 
-        # loop through the moves that are within delta of the bestmove
-        for m in sorted(moves, key=lambda item: item["score"], reverse=True):
+        # loop through the (sorted) moves that are within delta of the bestmove
+        for m in moves:
             score = int(m["score"])
-
-            if bestscore is None:
-                bestscore = score
 
             if score <= alpha:
                 break
@@ -386,14 +386,14 @@ class ChessGraph:
             if score == bestscore:
                 newDepth = depth - 1
             else:
-                newDepth = depth - int(1.5 + math.log(edgesfound) / math.log(2))
+                newDepth = depth - int(1.5 + math.log2(edgesfound))
 
             if newDepth >= 0:
                 if nodenameto not in self.visited:
                     futures.append(
                         self.executorgraph[depth].submit(
                             self.recurse,
-                            copy.deepcopy(board),
+                            board.copy(),
                             newDepth,
                             -beta,
                             -alpha,
@@ -420,7 +420,7 @@ class ChessGraph:
 
         concurrent.futures.wait(futures)
 
-        remainingMoves = legalMovesCount - edgesdrawn
+        remainingMoves = board.legal_moves.count() - edgesdrawn
         tooltip += "{} remaining {}&#010;".format(
             remainingMoves, "move" if remainingMoves == 1 else "moves"
         )
@@ -442,9 +442,32 @@ class ChessGraph:
             tooltip,
         )
 
-    def generate_graph(self, epd, alpha, beta):
+    def generate_graph(self, epd, alpha, beta, ralpha, rbeta, salpha, sbeta):
         # set initial board
         board = chess.Board(epd)
+
+        score, _ = self.get_bestscore_and_moves(board)
+        score = score if board.turn == chess.WHITE else -score
+
+        if ralpha is not None:
+            alpha = int(ralpha * score)
+        elif salpha is not None:
+            alpha = score - salpha
+
+        if rbeta is not None:
+            beta = int(rbeta * score)
+        elif sbeta is not None:
+            beta = score + sbeta
+
+        print("root position epd : ", epd)
+        print(
+            f"alpha             :  {alpha}{'  (alpha > eval!)' if alpha > score else ''}"
+        )
+        print("eval              : ", score)
+        print(
+            f"beta              :  {beta}{'  (beta < eval!)' if beta < score else ''}"
+        )
+        print("depth             : ", self.depth)
 
         if board.turn == chess.WHITE:
             initialAlpha, initialBeta = alpha, beta
@@ -462,42 +485,6 @@ if __name__ == "__main__":
         description="A utility to create a graph of moves from a specified chess position.",
     )
 
-    parser.add_argument(
-        "--networkstyle",
-        choices=["graph", "tree"],
-        type=str,
-        default="graph",
-        help="Selects the representation of the network as a graph (shows transpositions, compact) or a tree (simpler to follow, extended).",
-    )
-
-    parser.add_argument(
-        "--depth",
-        type=int,
-        default=6,
-        help="Maximum depth (in plies) of a followed variation",
-    )
-
-    parser.add_argument(
-        "--alpha",
-        type=int,
-        default=0,
-        help="Lower bound on the score of variations to be followed (for white)",
-    )
-
-    parser.add_argument(
-        "--beta",
-        type=int,
-        default=15,
-        help="Lower bound on the score of variations to be followed (for black)",
-    )
-
-    parser.add_argument(
-        "--concurrency",
-        type=int,
-        default=multiprocessing.cpu_count(),
-        help="Number of cores to use for work / requests.",
-    )
-
     group = parser.add_mutually_exclusive_group()
     group.add_argument(
         "--position",
@@ -510,12 +497,62 @@ if __name__ == "__main__":
         help='Moves in SAN notation that lead to the root position. E.g. "1. g4".',
     )
 
+    groupa = parser.add_mutually_exclusive_group()
+    groupa.add_argument(
+        "--alpha",
+        type=int,
+        default=0,
+        help="Lower bound on the score of variations to be followed (for white).",
+    )
+    groupa.add_argument(
+        "--ralpha",
+        type=float,
+        help="Set ALPHA = EVAL * RALPHA , where EVAL is the eval of the root position.",
+    )
+    groupa.add_argument(
+        "--salpha",
+        type=int,
+        help="Set ALPHA = EVAL - SALPHA.",
+    )
+
+    groupb = parser.add_mutually_exclusive_group()
+    groupb.add_argument(
+        "--beta",
+        type=int,
+        default=15,
+        help="Lower bound on the score of variations to be followed (for black).",
+    )
+    groupb.add_argument(
+        "--rbeta",
+        type=float,
+        help="Set BETA = EVAL * RBETA.",
+    )
+    groupb.add_argument(
+        "--sbeta",
+        type=int,
+        help="Set BETA = EVAL + SBETA.",
+    )
+
+    parser.add_argument(
+        "--depth",
+        type=int,
+        default=6,
+        help="Maximum depth (in plies) of a followed variation.",
+    )
+
+    parser.add_argument(
+        "--concurrency",
+        type=int,
+        default=multiprocessing.cpu_count(),
+        help="Number of cores to use for work / requests.",
+    )
+
     parser.add_argument(
         "--source",
-        choices=["chessdb", "engine", "lichess"],
+        choices=["chessdb", "lichess", "engine"],
         type=str,
         default="chessdb",
-        help="Use chessdb, lichess or an engine to score and rank moves",
+        help="Use chessdb, lichess or an engine to score and rank moves.",
     )
 
     parser.add_argument(
@@ -523,22 +560,7 @@ if __name__ == "__main__":
         choices=["masters", "lichess"],
         type=str,
         default="masters",
-        help="Which lichess database to access, masters, or lichess players",
-    )
-
-    parser.add_argument(
-        "--boardstyle",
-        choices=["unicode", "svg", "none"],
-        type=str,
-        default="unicode",
-        help="Which style to use to visualize a board.",
-    )
-
-    parser.add_argument(
-        "--boardedges",
-        type=int,
-        default=3,
-        help="Minimum number of edges needed before a board is visualized in the node.",
+        help="Which lichess database to access: masters, or lichess players.",
     )
 
     parser.add_argument(
@@ -554,14 +576,37 @@ if __name__ == "__main__":
         "--enginedepth",
         type=int,
         default=20,
-        help="Depth of the search used by the engine in evaluation",
+        help="Depth of the search used by the engine in evaluation.",
     )
 
     parser.add_argument(
         "--enginemaxmoves",
         type=int,
         default=10,
-        help="Maximum number of moves (MultiPV) considered by the engine in evaluation",
+        help="Maximum number of moves (MultiPV) considered by the engine in evaluation.",
+    )
+
+    parser.add_argument(
+        "--networkstyle",
+        choices=["graph", "tree"],
+        type=str,
+        default="graph",
+        help="Selects the representation of the network as a graph (shows transpositions, compact) or a tree (simpler to follow, extended).",
+    )
+
+    parser.add_argument(
+        "--boardstyle",
+        choices=["unicode", "svg", "none"],
+        type=str,
+        default="unicode",
+        help="Which style to use to visualize a board.",
+    )
+
+    parser.add_argument(
+        "--boardedges",
+        type=int,
+        default=3,
+        help="Minimum number of edges needed before a board is visualized in the node.",
     )
 
     parser.add_argument(
@@ -617,7 +662,9 @@ if __name__ == "__main__":
         fen = args.position
 
     # generate the content of the dotfile
-    chessgraph.generate_graph(fen, args.alpha, args.beta)
+    chessgraph.generate_graph(
+        fen, args.alpha, args.beta, args.ralpha, args.rbeta, args.salpha, args.sbeta
+    )
 
     # store updated cache
     chessgraph.store_cache()
